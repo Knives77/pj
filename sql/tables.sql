@@ -1,11 +1,7 @@
 /*
    Autor: Re-L Mayer 
    date: 2023-10-30
-<<<<<<< HEAD
-   v: Proyecto meh
-=======
    v: Knives
->>>>>>> v_knives
 */
 
 --Verificamos si existe una base de datos con 
@@ -20,10 +16,7 @@ USE pj;
 CREATE TABLE albums (
   id_alb INT AUTO_INCREMENT,
   name_a VARCHAR(30) NOT NULL DEFAULT "",
-<<<<<<< HEAD
-=======
   alb_cov VARCHAR(200) NOT NULL,
->>>>>>> v_knives
   date_alb DATE NOT NULL,
   totl_trck INT NOT NULL,
   gen_alb VARCHAR (100) NOT NULL,
@@ -71,8 +64,6 @@ CREATE TABLE users (
 );
 DESC users;
 
-<<<<<<< HEAD
-=======
 --Creamos la tabla "sales" 
 CREATE TABLE sales (
   id_sale INT AUTO_INCREMENT,
@@ -84,7 +75,6 @@ CREATE TABLE sales (
 );
 DESC sales;
 
->>>>>>> v_knives
 
 --Insert de "albums" 
 INSERT INTO 
