@@ -67,14 +67,46 @@ DESC users;
 --Creamos la tabla "sales" 
 CREATE TABLE sales (
   id_sale INT AUTO_INCREMENT,
-  date_sale DATE NOT NULL,
   id_usr INT,
+  date_sale DATE NOT NULL,
   ttl_sale DECIMAL(6,2) CHECK (ttl_sale >= 0 AND ttl_sale <= 5500),
+  payment_type VARCHAR(50),
   PRIMARY KEY(id_sale),
   FOREIGN KEY(id_usr) REFERENCES users(id_usr) ON UPDATE CASCADE ON DELETE CASCADE
 );
 DESC sales;
 
+--Creamos la tabla "album_sales" 
+CREATE TABLE album_sales (
+  id_sale INT,
+  id_alb INT,
+  PRIMARY KEY (id_sale, id_alb),
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale),
+  FOREIGN KEY (id_alb) REFERENCES albums(id_alb)
+);
+DESC album_sales;
+
+--Creamos la tabla "song_sales" 
+CREATE TABLE song_sales (
+  id_sale INT,
+  id_song INT,
+  PRIMARY KEY (id_sale, id_song),
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale),
+  FOREIGN KEY (id_song) REFERENCES songs(id_song)
+);
+DESC song_sales;
+
+--Creamos la tabla "combined_sales" 
+CREATE TABLE combined_sales (
+  id_sale INT,
+  id_alb INT,
+  id_song INT,
+  PRIMARY KEY (id_sale, id_alb, id_song),
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale),
+  FOREIGN KEY (id_alb) REFERENCES albums(id_alb),
+  FOREIGN KEY (id_song) REFERENCES songs(id_song)
+);
+DESC combined_sales;
 
 --Insert de "albums" 
 INSERT INTO 
