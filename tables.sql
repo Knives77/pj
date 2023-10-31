@@ -1,6 +1,7 @@
 /*
    Autor: Re-L Mayer 
    date: 2023-10-30
+   v: Proyecto meh
 */
 
 --Verificamos si existe una base de datos con 
@@ -15,7 +16,6 @@ USE pj;
 CREATE TABLE albums (
   id_alb INT AUTO_INCREMENT,
   name_a VARCHAR(30) NOT NULL DEFAULT "",
-  /*alb_cov LONGBLOB NOT NULL,*/
   date_alb DATE NOT NULL,
   punct DECIMAL(3,1) CHECK (punct >= 0 AND punct <= 10),
   test VARCHAR(150) NOT NULL,
@@ -52,8 +52,6 @@ CREATE TABLE users (
   PRIMARY KEY(id_usr)
 );
 DESC users;
-
-
 
 
 --Insert de "albums" 
