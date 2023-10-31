@@ -64,6 +64,7 @@ CREATE TABLE users (
 );
 DESC users;
 
+--Creamos la tabla "sales" 
 CREATE TABLE sales (
   id_sale INT AUTO_INCREMENT,
   date_sale DATE NOT NULL,
