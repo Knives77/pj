@@ -16,7 +16,7 @@ USE pj;
 CREATE TABLE albums (
   id_alb INT AUTO_INCREMENT,
   name_a VARCHAR(30) NOT NULL DEFAULT "",
-  /*alb_cov LONGBLOB NOT NULL,*/
+  alb_cov VARCHAR(200) NOT NULL,
   date_alb DATE NOT NULL,
   punct DECIMAL(3,1) CHECK (punct >= 0 AND punct <= 10),
   test VARCHAR(150) NOT NULL,
@@ -54,13 +54,17 @@ CREATE TABLE users (
 );
 DESC users;
 
-
+CREATE TABLE sales (
+  id_sale INT AUTO_INCREMENT,
+  PRIMARY KEY(id_sale)
+);
+DESC sales;
 
 
 --Insert de "albums" 
 INSERT INTO 
   albums
-VALUES (NULL, "YIELD", "2023-12-15", 0.1, "", 9.99);
+VALUES (NULL, "YIELD","https://drive.google.com/file/d/1Pm9GhHB4FzGFqNuPEDHPtiTYPAreXfUH/view?usp=drivesdk","2023-12-15", 0.1, "", 9.99);
 
 --Insert de "songs" 
 INSERT INTO 
