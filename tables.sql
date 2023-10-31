@@ -1,6 +1,7 @@
 /*
    Autor: Re-L Mayer 
    date: 2023-10-30
+   v: Knives
 */
 
 --Verificamos si existe una base de datos con 
