@@ -39,7 +39,7 @@ CREATE TABLE songs (
   name_s VARCHAR (60) NOT NULL,
   date_s DATE NOT NULL,
   durtn TIME NOT NULL,
-  rptn BIGINT NOT NULL,
+  tims_plyd BIGINT NOT NULL,
   price_s DECIMAL (3,2) CHECK (price_s >= 0 AND price_s <= 5),
   letra VARCHAR (200) NOT NULL,
   FOREIGN KEY(id_alb) REFERENCES albums(id_alb) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -129,7 +129,7 @@ y musical maduro."),
 /*Insert de "songs" */
 INSERT INTO 
   songs
-VALUES (NULL, 1, "MFC", "2023-10-31", "00:02:26", 4555, 5, "***");
+VALUES (NULL, 1, "MFC", "1998-02-03", "00:02:26", 163, 5, "***");
 
 /*Insert de "users" */
 INSERT INTO 
