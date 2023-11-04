@@ -18,13 +18,12 @@ USE pj;
 /*Creamos la tabla "album"*/
 CREATE TABLE albums (
   id_alb INT AUTO_INCREMENT,
-  name_a VARCHAR(30) NOT NULL,
   alb_cov VARCHAR(200) NOT NULL,
+  name_a VARCHAR(30) NOT NULL,
   date_alb DATE NOT NULL,
   totl_trck INT NOT NULL,
   gen_alb VARCHAR (100) NOT NULL,
   punct DECIMAL(3,1) CHECK (punct >= 0 AND punct <= 10),
-  test VARCHAR(150) NOT NULL,
   price DECIMAL (5,2) CHECK (price >= 0 AND price <= 1000),
   note VARCHAR(1000) NOT NULL,
   PRIMARY KEY (id_alb)
@@ -105,23 +104,23 @@ INSERT INTO
   albums
 VALUES 
 /*Yield*/
-(NULL, 'YIELD',"../img/Yield.jpg","1998-02-03", 
-12, "Grunge, Rock Alternativo", 9.5, "_", 9.99, 
+(NULL, "../img/Yield.jpg",'YIELD',"1998-02-03", 
+12, "Grunge, Rock Alternativo", 9.5, 700.03, 
 "El quinto álbum de estudio de Pearl Jam, 'Yield', continúa la
 evolución musical de la banda, fusionando elementos grunge con 
 una mayor diversidad de estilos. Destaca por su enfoque lírico 
 y musical maduro."),
 /*Ten*/
-(NULL, "Ten", "ruta", "1991-08-27", 11, "Grunge, Rock Alternativo", 10.0,
-"_", 9.99, "Uno de los álbumes más influyentes de los años 90."),
+(NULL,"ruta","Ten", "1991-08-27", 11, "Grunge, Rock Alternativo", 10.0,
+800.99, "Uno de los álbumes más influyentes de los años 90."),
 /*Vs.*/
-(NULL, 'Vs.', 'ruta', '1993-10-19', 12, 'Rock Alternativo, Grunge', 9.3, '_', 9.99, 
+(NULL, 'ruta','Vs.', '1993-10-19', 12, 'Rock Alternativo, Grunge', 9.3,  300.39, 
 'Un álbum icónico que marcó una época y dejó una huella indeleble en 
 la historia del rock. Cada pista es una obra maestra. ¡Imprescindible 
 para cualquier amante de la música!'),
 /*Lightning Bolt*/
-(NULL, 'Lightning Bolt', 'ruta', '2013-10-15', 12, 'Rock Alternativo, Grunge', 9.7,
-'_', 9.5, 'Este álbum demuestra que Pearl Jam sigue siendo una fuerza 
+(NULL, 'ruta','Lightning Bolt',  '2013-10-15', 12, 'Rock Alternativo, Grunge', 9.7,
+100.10, 'Este álbum demuestra que Pearl Jam sigue siendo una fuerza 
 en el mundo del rock. Con un sonido fresco y letras impactantes, 
 "Lightning Bolt" es una joya. ¡No te lo pierdas!');
 

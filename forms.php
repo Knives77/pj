@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="css/custom.css" />
   <!-- Favicon-->
   <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+  <!--  boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <!-- Tweaks for older IEs-->
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -40,11 +42,8 @@
             <div class="col-lg-8 mx-auto">
               <form class="px-4" id="searchForm" action="#">
                 <div class="input-group position-relative flex-column flex-lg-row flex-nowrap">
-                  <input class="form-control shadow-0 bg-none px-0 w-100" type="search" name="search"
-                    placeholder="What are you searching for..." />
-                  <button
-                    class="btn btn-link text-gray-600 px-0 text-decoration-none fw-bold cursor-pointer text-center"
-                    type="submit">
+                  <input class="form-control shadow-0 bg-none px-0 w-100" type="search" name="search" placeholder="What are you searching for..." />
+                  <button class="btn btn-link text-gray-600 px-0 text-decoration-none fw-bold cursor-pointer text-center" type="submit">
                     Search
                   </button>
                 </div>
@@ -57,16 +56,14 @@
         <div class="navbar-header d-flex align-items-center">
           <a class="navbar-brand text-uppercase text-reset" href="index.html">
             <div class="brand-text brand-big">
-              <strong class="text-primary">Dark</strong><strong>Admin</strong>
+              <strong class="text-primary">CROWS | </strong><strong> PJ</strong>
             </div>
             <div class="brand-text brand-sm">
-              <strong class="text-primary">D</strong><strong>A</strong>
+              <strong class="text-primary">C</strong><strong>PJ</strong>
             </div>
           </a>
           <button class="sidebar-toggle">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy transform-none">
-              <use xlink:href="#arrow-left-1"></use>
-            </svg>
+            <i class="bx bx-left-arrow"></i>
           </button>
         </div>
         <ul class="list-inline mb-0">
@@ -78,8 +75,7 @@
           </li>
           <!-- Tasks dropdown                   -->
           <li class="list-inline-item dropdown px-lg-2">
-            <a class="nav-link text-reset px-1 px-lg-0" id="navbarDropdownMenuLink2" href="#" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link text-reset px-1 px-lg-0" id="navbarDropdownMenuLink2" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <svg class="svg-icon svg-icon-xs svg-icon-heavy">
                 <use xlink:href="#paper-stack-1"></use>
               </svg><span class="badge bg-dash-color-3">9</span></a>
@@ -90,8 +86,7 @@
                     <strong>Task 1</strong><span>40% complete</span>
                   </div>
                   <div class="progress" style="height: 2px">
-                    <div class="progress-bar bg-dash-color-1" role="progressbar" style="width: 40%" aria-valuenow="40"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-dash-color-1" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </a>
               </li>
@@ -101,8 +96,7 @@
                     <strong>Task 2</strong><span>20% complete</span>
                   </div>
                   <div class="progress" style="height: 2px">
-                    <div class="progress-bar bg-dash-color-2" role="progressbar" style="width: 20%" aria-valuenow="20"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-dash-color-2" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </a>
               </li>
@@ -112,8 +106,7 @@
                     <strong>Task 3</strong><span>70% complete</span>
                   </div>
                   <div class="progress" style="height: 2px">
-                    <div class="progress-bar bg-dash-color-3" role="progressbar" style="width: 70%" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-dash-color-3" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </a>
               </li>
@@ -123,8 +116,7 @@
                     <strong>Task 4</strong><span>40% complete</span>
                   </div>
                   <div class="progress" style="height: 2px">
-                    <div class="progress-bar bg-dash-color-4" role="progressbar" style="width: 40%" aria-valuenow="40"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-dash-color-4" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </a>
               </li>
@@ -134,8 +126,7 @@
                     <strong>Task 5</strong><span>30% complete</span>
                   </div>
                   <div class="progress" style="height: 2px">
-                    <div class="progress-bar bg-dash-color-1" role="progressbar" style="width: 30%" aria-valuenow="30"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-dash-color-1" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </a>
               </li>
@@ -144,181 +135,6 @@
                   <strong>See All Tasks
                     <i class="fas fa-angle-right ms-1"></i></strong></a>
               </li>
-            </ul>
-          </li>
-          <!-- Mega menu-->
-          <li class="list-inline-item dropdown menu-large px-lg-2">
-            <a class="nav-link text-sm text-reset px-1 px-lg-0" href="#" data-bs-toggle="dropdown">Mega <i
-                class="fas fa-ellipsis-v ms-1"></i></a>
-            <ul class="dropdown-menu megamenu dropdown-menu-dark p-4">
-              <div class="row gy-3 mb-4">
-                <div class="col-lg-3">
-                  <h6 class="mb-2 text-uppercase">Elements Heading</h6>
-                  <ul class="list-unstyled text-gray-700">
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Lorem ipsum dolor</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Sed ut perspiciatis</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Voluptatum deleniti</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">At vero eos</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Consectetur adipiscing</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Duis aute irure</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Necessitatibus saepe</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Maiores alias</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-3">
-                  <h6 class="mb-2 text-uppercase">Elements Heading</h6>
-                  <ul class="list-unstyled text-gray-700">
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Lorem ipsum dolor</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Sed ut perspiciatis</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Voluptatum deleniti</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">At vero eos</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Consectetur adipiscing</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Duis aute irure</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Necessitatibus saepe</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Maiores alias</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-3">
-                  <h6 class="mb-2 text-uppercase">Elements Heading</h6>
-                  <ul class="list-unstyled text-gray-700">
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Lorem ipsum dolor</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Sed ut perspiciatis</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Voluptatum deleniti</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">At vero eos</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Consectetur adipiscing</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Duis aute irure</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Necessitatibus saepe</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Maiores alias</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-3">
-                  <h6 class="mb-2 text-uppercase">Elements Heading</h6>
-                  <ul class="list-unstyled text-gray-700">
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Lorem ipsum dolor</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Sed ut perspiciatis</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Voluptatum deleniti</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">At vero eos</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Consectetur adipiscing</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Duis aute irure</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Necessitatibus saepe</a>
-                    </li>
-                    <li class="py-1">
-                      <a class="inherit-link" href="#">Maiores alias</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row text-center gy-3">
-                <div class="col-lg-2 col-md-4">
-                  <a class="d-block p-4 text-white bg-dash-color-1" href="#">
-                    <svg class="svg-icon svg-icon-sm sv-icon-heavy text-white">
-                      <use xlink:href="#time-1"></use>
-                    </svg>
-                    <p class="text-sm d mb-0">Demo 1</p>
-                  </a>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                  <a class="d-block p-4 text-white bg-dash-color-2" href="#">
-                    <svg class="svg-icon svg-icon-sm sv-icon-heavy text-white">
-                      <use xlink:href="#time-1"></use>
-                    </svg>
-                    <p class="text-sm d mb-0">Demo 2</p>
-                  </a>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                  <a class="d-block p-4 text-white bg-dash-color-3" href="#">
-                    <svg class="svg-icon svg-icon-sm sv-icon-heavy text-white">
-                      <use xlink:href="#time-1"></use>
-                    </svg>
-                    <p class="text-sm d mb-0">Demo 3</p>
-                  </a>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                  <a class="d-block p-4 text-white bg-dash-color-4" href="#">
-                    <svg class="svg-icon svg-icon-sm sv-icon-heavy text-white">
-                      <use xlink:href="#time-1"></use>
-                    </svg>
-                    <p class="text-sm d mb-0">Demo 4</p>
-                  </a>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                  <a class="d-block p-4 text-white bg-danger" href="#">
-                    <svg class="svg-icon svg-icon-sm sv-icon-heavy text-white">
-                      <use xlink:href="#time-1"></use>
-                    </svg>
-                    <p class="text-sm d mb-0">Demo 5</p>
-                  </a>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                  <a class="d-block p-4 text-white bg-info" href="#">
-                    <svg class="svg-icon svg-icon-sm sv-icon-heavy text-white">
-                      <use xlink:href="#time-1"></use>
-                    </svg>
-                    <p class="text-sm d mb-0">Demo 6</p>
-                  </a>
-                </div>
-              </div>
             </ul>
           </li>
           <li class="list-inline-item logout px-lg-2">
@@ -352,7 +168,7 @@
             </svg><span>Home </span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="tables.html">
+          <a class="sidebar-link" href="tables.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Tables </span></a>
@@ -364,7 +180,7 @@
             </svg><span>Charts </span></a>
         </li>
         <li class="sidebar-item active">
-          <a class="sidebar-link" href="forms.html">
+          <a class="sidebar-link" href="forms.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#survey-1"></use>
             </svg><span>Forms </span></a>
@@ -435,105 +251,8 @@
       <section class="pt-0">
         <div class="container-fluid">
           <div class="row gy-4">
-            <!-- Basic Form-->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="h4 mb-0">Basic Form</h3>
-                </div>
-                <div class="card-body pt-0">
-                  <p class="text-sm">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <form>
-                    <div class="mb-3">
-                      <label class="form-label" for="exampleInputEmail1">Email address</label>
-                      <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" />
-                      <div class="form-text" id="emailHelp">
-                        We'll never share your email with anyone else.
-                      </div>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="exampleInputPassword1">Password</label>
-                      <input class="form-control" id="exampleInputPassword1" type="password" />
-                    </div>
-                    <button class="btn btn-primary" type="submit">
-                      Submit
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <!-- Horizontal Form-->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="h4 mb-0">Horizontal Form</h3>
-                </div>
-                <div class="card-body pt-0">
-                  <p class="text-sm">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <form class="form-horizontal">
-                    <div class="row gy-2 mb-4">
-                      <label class="col-sm-3 form-label" for="inputHorizontalElOne">Email</label>
-                      <div class="col-sm-9">
-                        <input class="form-control" id="inputHorizontalElOne" type="email"
-                          placeholder="Email Address" /><small class="form-text">Example help text that remains
-                          unchanged.</small>
-                      </div>
-                    </div>
-                    <div class="row gy-2 mb-4">
-                      <label class="col-sm-3 form-label" for="inputHorizontalElTwo">Password</label>
-                      <div class="col-sm-9">
-                        <input class="form-control" id="inputHorizontalElTwo" type="password"
-                          placeholder="Pasword" /><small class="form-text">Example help text that remains
-                          unchanged.</small>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-9 ms-auto">
-                        <input class="btn btn-primary" type="submit" value="Signin" />
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <!-- Inline Form-->
-            <div class="col-lg-8">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="h4 mb-0">Inline Form</h3>
-                </div>
-                <div class="card-body pt-0">
-                  <form class="row g-3 align-items-center">
-                    <div class="col-lg">
-                      <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-                      <div class="input-group">
-                        <div class="input-group-text">@</div>
-                        <input class="form-control" id="inlineFormInputGroupUsername" type="text"
-                          placeholder="Username" />
-                      </div>
-                    </div>
-                    <div class="col-lg">
-                      <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-                      <select class="form-select" id="inlineFormSelectPref">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </div>
-                    <div class="col-lg">
-                      <button class="btn btn-primary" type="submit">
-                        Submit
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+            <?php require "./php/connection.php" ?> <?php require
+                                                      "./php/forms/form_alb.php" ?>
             <!-- Modal Form-->
             <div class="col-lg-4">
               <div class="card">
@@ -545,24 +264,21 @@
                     Form in simple modal
                   </button>
                   <!-- Modal-->
-                  <div class="modal fade text-start" id="myModal" tabindex="-1" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
+                  <div class="modal fade text-start" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="myModalLabel">
                             Signin Modal
                           </h5>
-                          <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                          <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                           <p>Lorem ipsum dolor sit amet consectetur.</p>
                           <form>
                             <div class="mb-3">
                               <label class="form-label" for="modalInputEmail1">Email address</label>
-                              <input class="form-control" id="modalInputEmail1" type="email"
-                                aria-describedby="emailHelp" />
+                              <input class="form-control" id="modalInputEmail1" type="email" aria-describedby="emailHelp" />
                               <div class="form-text" id="emailHelp">
                                 We'll never share your email with anyone else.
                               </div>
@@ -605,8 +321,7 @@
                     <div class="row">
                       <label class="col-sm-3 form-label">Help text</label>
                       <div class="col-sm-9">
-                        <input class="form-control" type="text" /><small class="form-text">A block of help text that
-                          breaks onto a new line
+                        <input class="form-control" type="text" /><small class="form-text">A block of help text that breaks onto a new line
                           and may extend beyond one line.</small>
                       </div>
                     </div>
@@ -633,8 +348,7 @@
                     </div>
                     <div class="my-4"></div>
                     <div class="row">
-                      <label class="col-sm-3 form-label">Checkboxes &amp; radios <br /><small
-                          class="text-primary">Custom elements</small></label>
+                      <label class="col-sm-3 form-label">Checkboxes &amp; radios <br /><small class="text-primary">Custom elements</small></label>
                       <div class="col-sm-9">
                         <div class="form-check">
                           <input class="form-check-input" id="defaultCheck0" type="checkbox" />
@@ -657,18 +371,15 @@
                           <label class="form-check-label" for="defaultRadio0">Option one</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" id="defaultRadio1" type="radio" name="exampleRadios"
-                            checked />
+                          <input class="form-check-input" id="defaultRadio1" type="radio" name="exampleRadios" checked />
                           <label class="form-check-label" for="defaultRadio1">Option two checked</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" id="defaultRadio2" type="radio" name="exampleRadios" checked
-                            disabled />
+                          <input class="form-check-input" id="defaultRadio2" type="radio" name="exampleRadios" checked disabled />
                           <label class="form-check-label" for="defaultRadio2">Option three checked and disabled</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" id="defaultRadio3" type="radio" name="exampleRadios"
-                            disabled />
+                          <input class="form-check-input" id="defaultRadio3" type="radio" name="exampleRadios" disabled />
                           <label class="form-check-label" for="defaultRadio3">Option four disabled</label>
                         </div>
                       </div>
@@ -749,19 +460,16 @@
                       <label class="col-sm-3 form-label">Material Inputs</label>
                       <div class="col-sm-9">
                         <div class="input-material-group mb-3">
-                          <input class="input-material" id="register-username" type="text" name="registerUsername"
-                            required value="Jason Doe" />
+                          <input class="input-material" id="register-username" type="text" name="registerUsername" required value="Jason Doe" />
                           <label class="label-material" for="register-username">Username</label>
                         </div>
                         <div class="input-material-group mb-3">
-                          <input class="input-material" id="register-email" type="email" name="registerEmail"
-                            required />
+                          <input class="input-material" id="register-email" type="email" name="registerEmail" required />
                           <label class="label-material" for="register-email">Email Address
                           </label>
                         </div>
                         <div class="input-material-group mb-3">
-                          <input class="input-material" id="register-password" type="password" name="registerPassword"
-                            required />
+                          <input class="input-material" id="register-password" type="password" name="registerPassword" required />
                           <label class="label-material" for="register-password">Password
                           </label>
                         </div>
@@ -773,36 +481,29 @@
                       <div class="col-sm-9">
                         <div class="input-group mb-3">
                           <span class="input-group-text" id="basic-addon1">@</span>
-                          <input class="form-control" type="text" placeholder="Username" aria-label="Username"
-                            aria-describedby="basic-addon1" />
+                          <input class="form-control" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
                         </div>
                         <div class="input-group mb-3">
-                          <input class="form-control" type="text" placeholder="Username" aria-label="Username"
-                            aria-describedby="basic-addon2" /><span class="input-group-text" id="basic-addon2">@</span>
+                          <input class="form-control" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon2" /><span class="input-group-text" id="basic-addon2">@</span>
                         </div>
                         <div class="input-group mb-3">
                           <div class="input-group-text">
-                            <input class="form-check-input mt-0" type="checkbox"
-                              aria-label="Checkbox for following text input" />
+                            <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input" />
                           </div>
                           <input class="form-control" type="text" aria-label="Text input with checkbox" />
                         </div>
                         <div class="input-group mb-3">
                           <input class="form-control" type="text" aria-label="Text input with radio button" />
                           <div class="input-group-text">
-                            <input class="form-check-input mt-0" type="radio"
-                              aria-label="Radio button for following text input" />
+                            <input class="form-check-input mt-0" type="radio" aria-label="Radio button for following text input" />
                           </div>
                         </div>
                         <div class="input-group mb-3">
                           <span class="input-group-text">$</span><span class="input-group-text">0.00</span>
-                          <input class="form-control" type="text"
-                            aria-label="Dollar amount (with dot and two decimal places)" />
+                          <input class="form-control" type="text" aria-label="Dollar amount (with dot and two decimal places)" />
                         </div>
                         <div class="input-group">
-                          <input class="form-control" type="text"
-                            aria-label="Dollar amount (with dot and two decimal places)" /><span
-                            class="input-group-text">$</span><span class="input-group-text">0.00</span>
+                          <input class="form-control" type="text" aria-label="Dollar amount (with dot and two decimal places)" /><span class="input-group-text">$</span><span class="input-group-text">0.00</span>
                         </div>
                       </div>
                     </div>
@@ -814,12 +515,10 @@
                           <button class="btn btn-primary" id="button-addon1" type="button">
                             Button
                           </button>
-                          <input class="form-control" type="text" placeholder
-                            aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                          <input class="form-control" type="text" placeholder aria-label="Example text with button addon" aria-describedby="button-addon1" />
                         </div>
                         <div class="input-group">
-                          <input class="form-control" type="text" placeholder="Recipient's username"
-                            aria-label="Recipient's username" aria-describedby="button-addon2" />
+                          <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" />
                           <button class="btn btn-primary" id="button-addon2" type="button">
                             Button
                           </button>
@@ -831,8 +530,7 @@
                       <label class="col-sm-3 form-label">With dropdowns</label>
                       <div class="col-sm-9">
                         <div class="input-group">
-                          <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
                           </button>
                           <ul class="dropdown-menu dropdown-menu-dark shadow-sm">
@@ -875,8 +573,8 @@
           <div class="container-fluid text-center">
             <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
             <p class="mb-0 text-dash-gray">
-              2021 &copy; Your company. Design by
-              <a href="https://bootstrapious.com">Bootstrapious</a>.
+              2023 &copy; Knives. Design by
+              <a href="https://github.com/Knives77">Re-L Mayer</a>.
             </p>
           </div>
         </footer>
@@ -885,11 +583,14 @@
   </div>
   <!-- JavaScript files-->
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/just-validate/js/just-validate.min.js"></script>
+  <!-- <script src="vendor/just-validate/js/just-validate.min.js"></script>-->
+  <!--<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>-->
   <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/choices.js/public/assets/scripts/choices.min.js"></script>
   <!-- Main File-->
   <script src="js/front.js"></script>
+  <!--Validates-->
+  <script src="./js/form_validates.js"></script>
   <script>
     // ------------------------------------------------------- //
     //   Inject SVG Sprite -
@@ -900,7 +601,7 @@
       var ajax = new XMLHttpRequest();
       ajax.open("GET", path, true);
       ajax.send();
-      ajax.onload = function (e) {
+      ajax.onload = function(e) {
         var div = document.createElement("div");
         div.className = "d-none";
         div.innerHTML = ajax.responseText;
@@ -916,8 +617,7 @@
     );
   </script>
   <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 </body>
 
 </html>
