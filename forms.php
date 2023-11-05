@@ -251,8 +251,8 @@
       <section class="pt-0">
         <div class="container-fluid">
           <div class="row gy-4">
-            <?php require "./php/connection.php" ?> <?php require
-                                                      "./php/forms/form_alb.php" ?>
+            <?php require "./php/connection.php" ?> <?php require "./php/forms/form_alb.php";
+                                                    $conn->close(); ?>
             <!-- Modal Form-->
             <div class="col-lg-4">
               <div class="card">

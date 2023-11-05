@@ -20,7 +20,6 @@ $res = mysqli_query($conn, $alb);
               <th>Pistas</th>
               <th>Género</th>
               <th>Puntuación</th>
-              <th>...</th>
               <th>Precio</th>
               <th>Nota</th>
             </tr>
@@ -32,13 +31,12 @@ $res = mysqli_query($conn, $alb);
                     echo "
                    <tr>
                      <th scope='row'>" . $row['id_alb'] . "</th>
-                     <td>" . $row['alb_cov'] . "</td>
-                     <td>" . $row['name_a'] . "</td>
+                     <td class='text-center align-middle'><img class='rounded img-fluid' src='" . $row['alb_cov'] . "' alt='error'></td>
+                     <td class='align-middle'>" . $row['name_a'] . "</td>
                      <td>" . $row['date_alb'] . "</td>
                      <td>" . $row['totl_trck'] . "</td>
                      <td>" . $row['gen_alb'] . "</td>
                      <td>" . $row['punct'] . "★</td>
-                     <td>" . $row['test'] . "</td>
                      <td>$" . $row['price'] . "</td>
                      <td>" . $row['note'] . "</td>
                    </tr>

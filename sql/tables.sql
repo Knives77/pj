@@ -104,22 +104,22 @@ INSERT INTO
   albums
 VALUES 
 /*Yield*/
-(NULL, "../img/Yield.jpg",'YIELD',"1998-02-03", 
+(NULL, "./img/uploads/Yield.jpg",'YIELD',"1998-02-03", 
 12, "Grunge, Rock Alternativo", 9.5, 700.03, 
 "El quinto álbum de estudio de Pearl Jam, 'Yield', continúa la
 evolución musical de la banda, fusionando elementos grunge con 
 una mayor diversidad de estilos. Destaca por su enfoque lírico 
 y musical maduro."),
 /*Ten*/
-(NULL,"ruta","Ten", "1991-08-27", 11, "Grunge, Rock Alternativo", 10.0,
+(NULL,"./img/uploads/Ten.jpg","Ten", "1991-08-27", 11, "Grunge, Rock Alternativo", 10.0,
 800.99, "Uno de los álbumes más influyentes de los años 90."),
 /*Vs.*/
-(NULL, 'ruta','Vs.', '1993-10-19', 12, 'Rock Alternativo, Grunge', 9.3,  300.39, 
+(NULL, './img/uploads/Vs..jpg','Vs.', '1993-10-19', 12, 'Rock Alternativo, Grunge', 9.3,  300.39, 
 'Un álbum icónico que marcó una época y dejó una huella indeleble en 
 la historia del rock. Cada pista es una obra maestra. ¡Imprescindible 
 para cualquier amante de la música!'),
 /*Lightning Bolt*/
-(NULL, 'ruta','Lightning Bolt',  '2013-10-15', 12, 'Rock Alternativo, Grunge', 9.7,
+(NULL, './img/uploads/LightningBolt.jpg','Lightning Bolt',  '2013-10-15', 12, 'Rock Alternativo, Grunge', 9.7,
 100.10, 'Este álbum demuestra que Pearl Jam sigue siendo una fuerza 
 en el mundo del rock. Con un sonido fresco y letras impactantes, 
 "Lightning Bolt" es una joya. ¡No te lo pierdas!');
