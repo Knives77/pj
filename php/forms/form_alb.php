@@ -3,7 +3,7 @@
 $test = "SELECT alb_cov as test FROM albums WHERE(id_alb=1);";
 $result_t = mysqli_query($conn, $test)->fetch_object()->test;
 ?>
-<div class="col-lg-6">
+<div class="col-lg-12">
   <div class="card">
     <div class="card-header">
       <h3 class="h4 mb-0">Nuevo Álbum.</h3>

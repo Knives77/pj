@@ -3,7 +3,7 @@
 $alb = "SELECT * FROM albums";
 $res = mysqli_query($conn, $alb);
 ?>
-<div class="col col-lg-6">
+<div class="col col-lg-12">
   <div class="card mb-0">
     <div class="card-header">
       <h3 class="h4 mb-0"><?php echo "Álbums"; ?></h3>
@@ -31,7 +31,7 @@ $res = mysqli_query($conn, $alb);
                     echo "
                    <tr>
                      <th scope='row'>" . $row['id_alb'] . "</th>
-                     <td class='text-center align-middle'><img class='rounded img-fluid' src='" . $row['alb_cov'] . "' alt='error'></td>
+                     <td class='text-center align-middle'><img class='rounded' style='width: 150px; height: 150px;' src='" . $row['alb_cov'] . "' alt='error'></td>
                      <td class='align-middle'>" . $row['name_a'] . "</td>
                      <td>" . $row['date_alb'] . "</td>
                      <td>" . $row['totl_trck'] . "</td>

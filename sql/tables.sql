@@ -10,6 +10,15 @@ el mismo nombre y la eliminamos. Posteriormente
 creamos la base de datos y selecionamos.
 */
 
+/* Verificar si el usuario existe*/
+SELECT user FROM mysql.user WHERE user = 'admin_test';
+/*Si el usuario existe, eliminarlo*/
+DROP USER IF EXISTS 'admin_test'@'localhost';
+/*Crear usuario porbdefecto*/
+CREATE USER 'admin_test'@'localhost' IDENTIFIED BY 'admin_test_psswd';
+GRANT ALL PRIVILEGES ON *.* TO 'admin_test'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
 DROP DATABASE IF EXISTS pj;
 CREATE DATABASE pj CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET NAMES "utf8mb4";
@@ -41,7 +50,7 @@ CREATE TABLE songs (
   tims_plyd INT NOT NULL,
   price_s DECIMAL (3,2) CHECK (price_s >= 0 AND price_s <= 5),
   letra VARCHAR (200) NOT NULL,
-  FOREIGN KEY(id_alb) REFERENCES albums(id_alb) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY(id_alb) REFERENCES albums(id_alb), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   PRIMARY KEY(id_song)
 );
 DESC songs;
@@ -71,11 +80,14 @@ DESC users;
 CREATE TABLE sales (
   id_sale INT AUTO_INCREMENT,
   id_usr INT,
+  keyword VARCHAR(70) NOT NULL,
   date_sale DATE NOT NULL,
+  mode_sale VARCHAR (10) NOT NULL CHECK (mode_sale = 'Tienda' OR mode_sale = 'Línea'),
   ttl_sale DECIMAL(6,2) CHECK (ttl_sale >= 0 AND ttl_sale <= 5500),
   payment_type VARCHAR(50),
+  warranty_months INT(2) NOT NULL CHECK (warranty_months >= 0 AND warranty_months <= 24),
   PRIMARY KEY(id_sale),
-  FOREIGN KEY(id_usr) REFERENCES users(id_usr) ON UPDATE CASCADE ON DELETE CASCADE
+  FOREIGN KEY(id_usr) REFERENCES users(id_usr) /* ON UPDATE CASCADE ON DELETE CASCADE*/
 );
 DESC sales;
 
@@ -84,18 +96,19 @@ CREATE TABLE album_sales (
   id_sale INT,
   id_alb INT,
   PRIMARY KEY (id_sale, id_alb),
-  FOREIGN KEY (id_sale) REFERENCES sales(id_sale),
-  FOREIGN KEY (id_alb) REFERENCES albums(id_alb)
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
+  FOREIGN KEY (id_alb) REFERENCES albums(id_alb) /* ON UPDATE CASCADE ON DELETE CASCADE */
 );
 DESC album_sales;
+
 
 /*Creamos la tabla "song_sales" */
 CREATE TABLE song_sales (
   id_sale INT,
   id_song INT,
   PRIMARY KEY (id_sale, id_song),
-  FOREIGN KEY (id_sale) REFERENCES sales(id_sale),
-  FOREIGN KEY (id_song) REFERENCES songs(id_song)
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
+  FOREIGN KEY (id_song) REFERENCES songs(id_song) /* ON UPDATE CASCADE ON DELETE CASCADE*/
 );
 DESC song_sales;
 
@@ -171,21 +184,21 @@ VALUES
 /*Insert de "sales" */
 INSERT INTO sales 
  VALUES 
-(NULL, 1, "2023-10-31", 5500.00, "Tarjeta de credito"),
-(NULL, 3, '2023-02-20', 75.25, 'Efectivo'),
-(NULL, 7, '2023-03-10', 120.75, 'Transferencia bancaria'),
-(NULL, 2, '2023-04-05', 50.00, 'PayPal'),
-(NULL, 5, '2023-05-12', 85.99, 'Efectivo'),
-(NULL, 9, '2023-06-18', 220.45, 'Tarjeta de débito'),
-(NULL, 4, '2023-07-30', 75.75, 'Efectivo'),
-(NULL, 6, '2023-08-22', 150.60, 'Transferencia bancaria'),
-(NULL, 10, '2023-09-14', 300.00, 'PayPal'),
-(NULL, 8, '2023-10-01', 199.99, 'Tarjeta de crédito'),
-(NULL, 1, '2023-11-11', 110.00, 'Efectivo'),
-(NULL, 3, '2023-12-25', 175.25, 'Transferencia bancaria'),
-(NULL, 2, '2024-01-05', 55.50, 'PayPal'),
-(NULL, 5, '2024-02-29', 89.99, 'Tarjeta de débito'),
-(NULL, 9, '2024-03-15', 205.25, 'Efectivo');
+(NULL, 1,  "Re-L Mayer","2023-10-31", "Tienda", 5500.00, "Tarjeta de credito", 3),
+(NULL, 3,  "Re-L Mayer",'2023-02-20', "Línea", 75.25, 'Efectivo', 3),
+(NULL, 7,  "Re-L Mayer",'2023-03-10', "Línea", 120.75, 'Transferencia bancaria', 3),
+(NULL, 2,  "Re-L Mayer",'2023-04-05', "Línea", 50.00, 'PayPal', 3),
+(NULL, 5,  "Re-L Mayer",'2023-05-12', "Línea", 85.99, 'Efectivo', 3),
+(NULL, 9,  "Re-L Mayer",'2023-06-18', "Línea", 220.45, 'Tarjeta de débito', 3),
+(NULL, 4,  "Re-L Mayer",'2023-07-30', "Línea", 75.75, 'Efectivo', 3),
+(NULL, 6,  "Re-L Mayer",'2023-08-22', "Línea", 150.60, 'Transferencia bancaria', 3),
+(NULL, 10, "Re-L Mayer",'2023-09-14', "Línea",  300.00, 'PayPal', 3),
+(NULL, 8,  "Re-L Mayer",'2023-10-01', "Línea", 199.99, 'Tarjeta de crédito', 3),
+(NULL, 1,  "Re-L Mayer",'2023-11-11', "Línea", 110.00, 'Efectivo', 3),
+(NULL, 3,  "Re-L Mayer",'2023-12-25', "Línea", 175.25, 'Transferencia bancaria', 3),
+(NULL, 2,  "Re-L Mayer",'2024-01-05', "Línea", 55.50, 'PayPal', 3),
+(NULL, 5,  "Re-L Mayer",'2024-02-29', "Línea", 89.99, 'Tarjeta de débito', 3),
+(NULL, 9,  "Re-L Mayer",'2024-03-15', "Línea", 205.25, 'Efectivo', 3);
 
 /*Insert de "album_sales" */
 INSERT INTO album_sales 

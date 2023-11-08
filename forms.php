@@ -254,7 +254,7 @@
             <?php require "./php/connection.php" ?> <?php require "./php/forms/form_alb.php";
                                                     $conn->close(); ?>
             <!-- Modal Form-->
-            <div class="col-lg-4">
+            <div class="col-lg-12">
               <div class="card">
                 <div class="card-header">
                   <h3 class="mb-0">Signin Modal</h3>
