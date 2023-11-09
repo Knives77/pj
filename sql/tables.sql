@@ -49,7 +49,8 @@ CREATE TABLE songs (
   durtn TIME NOT NULL,
   tims_plyd INT NOT NULL,
   price_s DECIMAL (3,2) CHECK (price_s >= 0 AND price_s <= 5),
-  letra VARCHAR (200) NOT NULL,
+  format_s VARCHAR(10) NOT NULL,
+  lyrics VARCHAR (200) NOT NULL,
   FOREIGN KEY(id_alb) REFERENCES albums(id_alb), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   PRIMARY KEY(id_song)
 );
@@ -84,8 +85,9 @@ CREATE TABLE sales (
   date_sale DATE NOT NULL,
   mode_sale VARCHAR (10) NOT NULL CHECK (mode_sale = 'Tienda' OR mode_sale = 'Línea'),
   ttl_sale DECIMAL(6,2) CHECK (ttl_sale >= 0 AND ttl_sale <= 5500),
-  payment_type VARCHAR(50),
+  payment_type VARCHAR(50) NOT NULL,
   warranty_months INT(2) NOT NULL CHECK (warranty_months >= 0 AND warranty_months <= 24),
+  various_prdct BOOLEAN NOT NULL,
   PRIMARY KEY(id_sale),
   FOREIGN KEY(id_usr) REFERENCES users(id_usr) /* ON UPDATE CASCADE ON DELETE CASCADE*/
 );
@@ -95,7 +97,7 @@ DESC sales;
 CREATE TABLE album_sales (
   id_sale INT,
   id_alb INT,
-  PRIMARY KEY (id_sale, id_alb),
+  CONSTRAINT id_alb_sale PRIMARY KEY (id_sale, id_alb),
   FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   FOREIGN KEY (id_alb) REFERENCES albums(id_alb) /* ON UPDATE CASCADE ON DELETE CASCADE */
 );
@@ -106,7 +108,7 @@ DESC album_sales;
 CREATE TABLE song_sales (
   id_sale INT,
   id_song INT,
-  PRIMARY KEY (id_sale, id_song),
+  CONSTRAINT id_song_sale PRIMARY KEY (id_sale, id_song),
   FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   FOREIGN KEY (id_song) REFERENCES songs(id_song) /* ON UPDATE CASCADE ON DELETE CASCADE*/
 );
@@ -142,29 +144,29 @@ INSERT INTO
   songs
 VALUES
 /*Yield*/
-(NULL, 1, "All Those Yesterdays", "1998-02-03", "00:07:40", 23, 5.00, "***"),
-(NULL, 1, "Do the Evolution", "1998-02-03", "00:03:51", 548, 5.00,"***"),
-(NULL, 1, "Faithful", "1998-02-03", "00:04:19", 102, 5.00,"***"),
-(NULL, 1, "Brain of J.", "1998-02-03", "00:03:00", 131,5.00, "***"),
-(NULL, 1, "No Way", "1998-02-03", "00:04:19", 12, 5.00, "***"),
+(NULL, 1, "All Those Yesterdays", "1998-02-03", "00:07:40", 23, 5.00, "flac", "***"),
+(NULL, 1, "Do the Evolution", "1998-02-03", "00:03:51", 548, 5.00, "flac","***"),
+(NULL, 1, "Faithful", "1998-02-03", "00:04:19", 102, 5.00, "flac","***"),
+(NULL, 1, "Brain of J.", "1998-02-03", "00:03:00", 131,5.00, "flac", "***"),
+(NULL, 1, "No Way", "1998-02-03", "00:04:19", 12, 5.00, "flac", "***"),
 /*Ten*/  
-(NULL, 2, "Jeremy", "1991-08-27", "00:05:18", 556, 5.00, "***"),
-(NULL, 2, "Black", "1991-08-27", "00:05:42", 590, 5.00, "***"),
-(NULL, 2, "Alive", "1991-08-27", "00:05:40", 807, 5.00, "***"),
-(NULL, 2, "Even Flow", "1991-08-27", "00:04:55", 875, 5.00, "***"),
-(NULL, 2, "Deep", "1991-08-27", "00:04:18", 207, 5.00, "***"),
+(NULL, 2, "Jeremy", "1991-08-27", "00:05:18", 556, 5.00, "flac", "***"),
+(NULL, 2, "Black", "1991-08-27", "00:05:42", 590, 5.00, "flac", "***"),
+(NULL, 2, "Alive", "1991-08-27", "00:05:40", 807, 5.00, "flac", "***"),
+(NULL, 2, "Even Flow", "1991-08-27", "00:04:55", 875, 5.00, "flac", "***"),
+(NULL, 2, "Deep", "1991-08-27", "00:04:18", 207, 5.00, "flac", "***"),
 /*Vs.*/
-(NULL, 3, "Daughter", "1993-10-19", "00:03:55", 542, 5.00, "***"),
-(NULL, 3, "Rearviewmirror", "1993-10-19", "00:04:44", 464, 5.00, "***"),
-(NULL, 3, "Go", "1993-10-19", "00:02:51", 340, 5.00, "***"),
-(NULL, 3, "Leash", "1993-10-19", "00:02:53", 132, 5.00, "***"),
-(NULL, 3, "Indifference", "1993-10-19", "00:05:02", 165, 5.00, "***"),
+(NULL, 3, "Daughter", "1993-10-19", "00:03:55", 542, 5.00, "flac", "***"),
+(NULL, 3, "Rearviewmirror", "1993-10-19", "00:04:44", 464, 5.00, "flac", "***"),
+(NULL, 3, "Go", "1993-10-19", "00:02:51", 340, 5.00, "flac", "***"),
+(NULL, 3, "Leash", "1993-10-19", "00:02:53", 132, 5.00, "flac", "***"),
+(NULL, 3, "Indifference", "1993-10-19", "00:05:02", 165, 5.00, "flac", "***"),
 /*Lightning Bolt*/
-(NULL, 4, "Sirens", "2013-10-15", "00:05:36", 74, 5.00, "***"),
-(NULL, 4, "Infallible", "2013-10-15", "00:05:22", 22, 5.00, "***"),
-(NULL, 4, "My Father's Son", "2013-10-15", "00:03:42", 13, 5.00, "***"),
-(NULL, 4, "Sleeping By Myself", "2013-10-15", "00:01:52", 22, 5.00, "***"),
-(NULL, 4, "Swallowed Whole", "2013-10-15", "00:03:51", 15, 5.00, "***");
+(NULL, 4, "Sirens", "2013-10-15", "00:05:36", 74, 5.00, "flac", "***"),
+(NULL, 4, "Infallible", "2013-10-15", "00:05:22", 22, 5.00, "flac", "***"),
+(NULL, 4, "My Father's Son", "2013-10-15", "00:03:42", 13, 5.00, "flac", "***"),
+(NULL, 4, "Sleeping By Myself", "2013-10-15", "00:01:52", 22, 5.00, "flac", "***"),
+(NULL, 4, "Swallowed Whole", "2013-10-15", "00:03:51", 15, 5.00, "flac", "***");
 
 /*Insert de "users" */
 INSERT INTO 
@@ -184,21 +186,21 @@ VALUES
 /*Insert de "sales" */
 INSERT INTO sales 
  VALUES 
-(NULL, 1,  "Re-L Mayer","2023-10-31", "Tienda", 5500.00, "Tarjeta de credito", 3),
-(NULL, 3,  "Re-L Mayer",'2023-02-20', "Línea", 75.25, 'Efectivo', 3),
-(NULL, 7,  "Re-L Mayer",'2023-03-10', "Línea", 120.75, 'Transferencia bancaria', 3),
-(NULL, 2,  "Re-L Mayer",'2023-04-05', "Línea", 50.00, 'PayPal', 3),
-(NULL, 5,  "Re-L Mayer",'2023-05-12', "Línea", 85.99, 'Efectivo', 3),
-(NULL, 9,  "Re-L Mayer",'2023-06-18', "Línea", 220.45, 'Tarjeta de débito', 3),
-(NULL, 4,  "Re-L Mayer",'2023-07-30', "Línea", 75.75, 'Efectivo', 3),
-(NULL, 6,  "Re-L Mayer",'2023-08-22', "Línea", 150.60, 'Transferencia bancaria', 3),
-(NULL, 10, "Re-L Mayer",'2023-09-14', "Línea",  300.00, 'PayPal', 3),
-(NULL, 8,  "Re-L Mayer",'2023-10-01', "Línea", 199.99, 'Tarjeta de crédito', 3),
-(NULL, 1,  "Re-L Mayer",'2023-11-11', "Línea", 110.00, 'Efectivo', 3),
-(NULL, 3,  "Re-L Mayer",'2023-12-25', "Línea", 175.25, 'Transferencia bancaria', 3),
-(NULL, 2,  "Re-L Mayer",'2024-01-05', "Línea", 55.50, 'PayPal', 3),
-(NULL, 5,  "Re-L Mayer",'2024-02-29', "Línea", 89.99, 'Tarjeta de débito', 3),
-(NULL, 9,  "Re-L Mayer",'2024-03-15', "Línea", 205.25, 'Efectivo', 3);
+(NULL, 1,  "Re-L Mayer","2023-10-31", "Tienda", 5500.00, "Tarjeta de credito", 3, 1),
+(NULL, 3,  "Re-L Mayer",'2023-02-20', "Línea", 75.25, 'Efectivo', 3, 1),
+(NULL, 7,  "Re-L Mayer",'2023-03-10', "Línea", 120.75, 'Transferencia bancaria', 3, 1),
+(NULL, 2,  "Re-L Mayer",'2023-04-05', "Línea", 50.00, 'PayPal', 3, 1),
+(NULL, 5,  "Re-L Mayer",'2023-05-12', "Línea", 85.99, 'Efectivo', 3, 1),
+(NULL, 9,  "Re-L Mayer",'2023-06-18', "Línea", 220.45, 'Tarjeta de débito', 3, 1),
+(NULL, 4,  "Re-L Mayer",'2023-07-30', "Línea", 75.75, 'Efectivo', 3, 1),
+(NULL, 6,  "Re-L Mayer",'2023-08-22', "Línea", 150.60, 'Transferencia bancaria', 3, 1),
+(NULL, 10, "Re-L Mayer",'2023-09-14', "Línea",  300.00, 'PayPal', 2, 0),
+(NULL, 8,  "Re-L Mayer",'2023-10-01', "Línea", 199.99, 'Tarjeta de crédito', 3, 1),
+(NULL, 1,  "Re-L Mayer",'2023-11-11', "Línea", 110.00, 'Efectivo', 3, 1),
+(NULL, 3,  "Re-L Mayer",'2023-12-25', "Línea", 175.25, 'Transferencia bancaria', 3, 1),
+(NULL, 2,  "Re-L Mayer",'2024-01-05', "Línea", 55.50, 'PayPal', 3, 1),
+(NULL, 5,  "Re-L Mayer",'2024-02-29', "Línea", 89.99, 'Tarjeta de débito', 3, 1),
+(NULL, 9,  "Re-L Mayer",'2024-03-15', "Línea", 205.25, 'Efectivo', 3, 1);
 
 /*Insert de "album_sales" */
 INSERT INTO album_sales 
