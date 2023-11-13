@@ -27,14 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
             $conexion->close(); */
             $album = array(
-            "alb_cover" => "./img/uploads/$nombre",
-            "nm_alb" => $_POST["nm_alb"],
-            "date_alb" => $_POST["date_alb"],
-            "totl_trck" => $_POST["totl_trck"],
-            "gen_alb" => $_POST["gen_alb"],
-            "punct_alb" => $_POST["punct_alb"],
-            "price_alb" => $_POST["price_alb"],
-            "note_alb" => $_POST["note_alb"]
+                "alb_cover" => "./img/uploads/$nombre",
+                "nm_alb" => $_POST["nm_alb"],
+                "date_alb" => $_POST["date_alb"],
+                "totl_trck" => $_POST["totl_trck"],
+                "gen_alb" => $_POST["gen_alb"],
+                "punct_alb" => $_POST["punct_alb"],
+                "price_alb" => $_POST["price_alb"],
+                "note_alb" => $_POST["note_alb"]
             );
             $sql = "INSERT INTO albums
                       VALUES (NULL,
@@ -51,14 +51,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($up_album->execute()) {
                 echo "Registro exitoso";
             } else {
-                echo "Error al insertar registro: " . $conexion->error;
+                echo "Error al insertar registro: " . $conn->error;
             }
             $up_album->close();
         } else {
             echo "Error al subir la imagen al servidor.";
         }
     } else {
-        echo "Error al cargar la imagen.";
+        echo "Error al cargar la imagen" . $conn->error;
     }
 }
 

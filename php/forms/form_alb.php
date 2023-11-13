@@ -12,7 +12,7 @@ $result_t = mysqli_query($conn, $test)->fetch_object()->test;
       <p class="text-sm">
         Llenado de formularo de la tabla "albums".
       </p>
-      <form id="alb_form" class="needs-validation" autocomplete="off" novalidate method="post" action="./php/regs/alb_reg.php" enctype="multipart/form-data">
+      <form id="alb_form" class="needs-validation" action="./php/regs/alb_reg.php" method="POST" autocomplete="off" novalidate enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-3">
             <img hidden src="" alt="error al leer el archivo" name="test" class="w-100 mt-0" id="img_cov"></img>
@@ -122,7 +122,108 @@ $result_t = mysqli_query($conn, $test)->fetch_object()->test;
         <button class="btn btn-primary mt-3" type="submit">
           Submit
         </button>
+        <!--<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal1">
+          Form in simple modal
+        </button>-->
+        <div class="modal fade text-start" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal1Label">
+                  Signin Modal
+                </h5>
+                <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+                  Close
+                </button>
+                <button class="btn btn-primary" type="submit">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
+      <div id="result" class="form-label mt-3">Resultado : </div>
     </div>
   </div>
 </div>
+
+
+<!--<script>
+  $(document).ready(function() {
+    $("#alb_form").submit(function(event) {
+      event.preventDefault();
+
+      // Crea un objeto FormData para manejar los datos del formulario, incluidos los archivos
+      var formData = new FormData(this);
+      $.ajax({
+        type: "POST",
+        url: "./php/regs/alb_reg.php",
+        data: formData,
+        processData: false, // Evita que jQuery procese los datos
+        contentType: false, // Evita que jQuery establezca el tipo de contenido
+        success: function(response) {
+          $("#result").html(response);
+          $("#alb_form")[0].reset(); // Reinicia el formulario
+        },
+        error: function() {
+          $("#result").html("Hubo un error en la solicitud.");
+        }
+      });
+    });
+  });
+</script>-->
+
+
+<script>
+  $(document).ready(function() {
+    $("#alb_form").submit(function(event) {
+      // Evita el envío automático del formulario
+      event.preventDefault();
+
+      // Utiliza la validación de Bootstrap
+      var form = $(this);
+      if (form[0].checkValidity() === false) {
+        event.stopPropagation();
+      } else {
+        // Si la validación pasa, procede con la lógica del envío del formulario
+        var formData = new FormData(this);
+
+        $.ajax({
+          type: "POST",
+          url: "./php/regs/alb_reg.php",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(response) {
+            // Almacena el mensaje en localStorage
+            localStorage.setItem("message", response);
+
+            // Recarga la página
+            location.reload();
+          },
+          error: function() {
+            $("#result").html("Hubo un error en la solicitud.");
+          }
+        });
+      }
+
+      // Agrega la clase 'was-validated' para mostrar las validaciones de Bootstrap
+      form.addClass('was-validated');
+    });
+
+    // Verifica si hay un mensaje almacenado después de la recarga
+    var storedMessage = localStorage.getItem("message");
+    if (storedMessage) {
+      $("#result").html(storedMessage);
+
+      // Limpia el mensaje almacenado después de mostrarlo
+      localStorage.removeItem("message");
+    }
+  });
+</script>

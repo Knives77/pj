@@ -20,6 +20,7 @@
   <link rel="shortcut icon" href="img/favicon/favicon.ico" />
   <!--  boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <!-- Tweaks for older IEs-->
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

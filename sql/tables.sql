@@ -32,8 +32,8 @@ CREATE TABLE albums (
   date_alb DATE NOT NULL,
   totl_trck INT NOT NULL,
   gen_alb VARCHAR (100) NOT NULL,
-  punct DECIMAL(3,1) CHECK (punct >= 0 AND punct <= 10),
-  price DECIMAL (5,2) CHECK (price >= 0 AND price <= 1000),
+  punct DECIMAL(3,1) NOT NULL CHECK (punct >= 0 AND punct <= 10),
+  price DECIMAL (5,2) NOT NULL CHECK (price >= 0 AND price <= 1000),
   note VARCHAR(1000) NOT NULL,
   PRIMARY KEY (id_alb)
 );
@@ -43,12 +43,12 @@ DESC albums;
 /*Creamos la tabla  "songs" */
 CREATE TABLE songs (
   id_song INT AUTO_INCREMENT,
-  id_alb INT,
+  id_alb INT NOT NULL,
   name_s VARCHAR (60) NOT NULL,
   date_s DATE NOT NULL,
   durtn TIME NOT NULL,
   tims_plyd INT NOT NULL,
-  price_s DECIMAL (3,2) CHECK (price_s >= 0 AND price_s <= 5),
+  price_s DECIMAL (3,2) NOT NULL CHECK (price_s >= 0 AND price_s <= 5),
   format_s VARCHAR(10) NOT NULL,
   lyrics VARCHAR (200) NOT NULL,
   FOREIGN KEY(id_alb) REFERENCES albums(id_alb), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
@@ -80,11 +80,11 @@ DESC users;
 /*Creamos la tabla "sales" */
 CREATE TABLE sales (
   id_sale INT AUTO_INCREMENT,
-  id_usr INT,
+  id_usr INT NOT NULL,
   keyword VARCHAR(70) NOT NULL,
   date_sale DATE NOT NULL,
   mode_sale VARCHAR (10) NOT NULL CHECK (mode_sale = 'Tienda' OR mode_sale = 'Línea'),
-  ttl_sale DECIMAL(6,2) CHECK (ttl_sale >= 0 AND ttl_sale <= 5500),
+  ttl_sale DECIMAL(6,2) NOT NULL CHECK (ttl_sale >= 0 AND ttl_sale <= 5500),
   payment_type VARCHAR(50) NOT NULL,
   warranty_months INT(2) NOT NULL CHECK (warranty_months >= 0 AND warranty_months <= 24),
   various_prdct BOOLEAN NOT NULL,
@@ -95,8 +95,8 @@ DESC sales;
 
 /*Creamos la tabla "album_sales" */
 CREATE TABLE album_sales (
-  id_sale INT,
-  id_alb INT,
+  id_sale INT NOT NULL,
+  id_alb INT NOT NULL,
   CONSTRAINT id_alb_sale PRIMARY KEY (id_sale, id_alb),
   FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   FOREIGN KEY (id_alb) REFERENCES albums(id_alb) /* ON UPDATE CASCADE ON DELETE CASCADE */
@@ -106,8 +106,8 @@ DESC album_sales;
 
 /*Creamos la tabla "song_sales" */
 CREATE TABLE song_sales (
-  id_sale INT,
-  id_song INT,
+  id_sale INT NOT NULL,
+  id_song INT NOT NULL,
   CONSTRAINT id_song_sale PRIMARY KEY (id_sale, id_song),
   FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   FOREIGN KEY (id_song) REFERENCES songs(id_song) /* ON UPDATE CASCADE ON DELETE CASCADE*/
