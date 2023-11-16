@@ -156,7 +156,7 @@
       <div class="sidebar-header d-flex align-items-center p-4">
         <img class="border border-img-b avatar shadow-0 img-fluid rounded" src="img/avatar-6.jpg" alt="..." />
         <div class="ms-3 title">
-          <h1 class="h5 mb-1">Mark Stephen</h1>
+          <h1 class="h5 mb-1">Re-L Mayer</h1>
           <p class="text-sm text-gray-700 mb-0 lh-1">Web Designer</p>
         </div>
       </div>
@@ -255,55 +255,7 @@
             <?php require "./php/connection.php" ?> <?php require "./php/forms/form_alb.php";
                                                     $conn->close(); ?>
             <!-- Modal Form-->
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="mb-0">Signin Modal</h3>
-                </div>
-                <div class="card-body pt-0 text-center">
-                  <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                    Form in simple modal
-                  </button>
-                  <!-- Modal-->
-                  <div class="modal fade text-start" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="myModalLabel">
-                            Signin Modal
-                          </h5>
-                          <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <p>Lorem ipsum dolor sit amet consectetur.</p>
-                          <form>
-                            <div class="mb-3">
-                              <label class="form-label" for="modalInputEmail1">Email address</label>
-                              <input class="form-control" id="modalInputEmail1" type="email" aria-describedby="emailHelp" />
-                              <div class="form-text" id="emailHelp">
-                                We'll never share your email with anyone else.
-                              </div>
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label" for="modalInputPassword1">Password</label>
-                              <input class="form-control" id="modalInputPassword1" type="password" />
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                            Close
-                          </button>
-                          <button class="btn btn-primary" type="button">
-                            Save changes
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             <!-- Form Elements -->
             <div class="col-lg-12">
               <div class="card">
@@ -592,6 +544,7 @@
   <script src="js/front.js"></script>
   <!--Validates-->
   <script src="./js/form_validates.js"></script>
+  <script src="./js/notify.js"></script>
   <script>
     // ------------------------------------------------------- //
     //   Inject SVG Sprite -

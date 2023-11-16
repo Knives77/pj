@@ -50,15 +50,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $up_album = $conn->prepare($sql);
             if ($up_album->execute()) {
                 echo "Registro exitoso";
+            echo"<script>
+            var notify = () => {
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                var toastList = toastElList.map(function (toastEl) {
+                    return new bootstrap.Toast(toastEl)
+                })
+                toastList.forEach(toast => toast.hide());
+                toastList.forEach(toast => toast.show());
+            }
+            notify();
+            </script>";
+
+                
             } else {
                 echo "Error al insertar registro: " . $conn->error;
+                echo "<script>notify();</script>";
             }
             $up_album->close();
         } else {
             echo "Error al subir la imagen al servidor.";
+            echo "<script>notify();</script>";
         }
     } else {
         echo "Error al cargar la imagen" . $conn->error;
+        echo "<script>notify();</script>";
     }
 }
 

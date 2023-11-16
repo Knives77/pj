@@ -20,6 +20,7 @@
   <link rel="shortcut icon" href="img/favicon/favicon.ico" />
   <!--  boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <!-- Tweaks for older IEs-->
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -54,7 +55,7 @@
       </div>
       <div class="container-fluid d-flex align-items-center justify-content-between py-1">
         <div class="navbar-header d-flex align-items-center">
-          <a class="navbar-brand text-uppercase text-reset" href="index.html">
+          <a class="navbar-brand text-uppercase text-reset active" href="index.html">
             <div class="brand-text brand-big">
               <strong class="text-primary">CROWS |</strong><strong> PJ</strong>
             </div>
@@ -62,7 +63,7 @@
               <strong class="text-primary">C</strong><strong>PJ</strong>
             </div>
           </a>
-          <button class="sidebar-toggle">
+          <button class="sidebar-toggle active">
             <i class="bx bx-left-arrow"></i>
           </button>
         </div>
@@ -150,12 +151,12 @@
   </header>
   <div class="d-flex align-items-stretch">
     <!-- Sidebar Navigation-->
-    <nav id="sidebar">
+    <nav id="sidebar" class="shrinked">
       <!-- Sidebar Header-->
       <div class="sidebar-header d-flex align-items-center p-4">
         <img class="border border-img-b avatar shadow-0 img-fluid rounded" src="img/avatar-6.jpg" alt="..." />
         <div class="ms-3 title">
-          <h1 class="h5 mb-1">Mark Stephen</h1>
+          <h1 class="h5 mb-1">Re-L Mayer</h1>
           <p class="text-sm text-gray-700 mb-0 lh-1">Web Designer</p>
         </div>
       </div>
@@ -276,6 +277,7 @@
   <script src="vendor/choices.js/public/assets/scripts/choices.min.js"></script>
   <!-- Main File-->
   <script src="js/front.js"></script>
+  <script src="js/del_reg.js"></script>
   <script>
     // ------------------------------------------------------- //
     //   Inject SVG Sprite -
