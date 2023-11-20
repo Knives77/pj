@@ -186,7 +186,7 @@ if (isset($_GET["id"])) {
                 <p class="format-label mb-0">Se añadirá este registro a la tabla "albums"</p>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-secondary" type="submit" data-bs-dismiss="modal">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
                   Cerrar.
                 </button>
                 <button class="btn btn-primary" type="submit">
