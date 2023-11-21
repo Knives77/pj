@@ -7,17 +7,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tamano = $_FILES["cover_alb"]["size"];
         $ruta_temporal = $_FILES["cover_alb"]["tmp_name"];
 
-        $ruta_destino = "../../img/uploads/" . $nombre;
+        $ruta_destino = "../../../img/uploads/" . $nombre;
         if (move_uploaded_file($ruta_temporal, $ruta_destino)) {
-            $id_alb = $_POST['id_alb'];
-            $alb_cov = $_POST["./img/uploads/'.$nombre.'"];
+            $id_alb = $_GET['id'];
+            $alb_cov = "./img/uploads/".$nombre."";
             $name_a = $_POST['nm_alb'];
             $date_alb = $_POST['date_alb'];
             $totl_trck = $_POST['totl_trck'];
             $gen_alb = $_POST['gen_alb'];
-            $punct = $_POST['punct'];
-            $price = $_POST['price'];
-            $note = $_POST['note'];
+            $punct = $_POST['punct_alb'];
+            $price = $_POST['price_alb'];
+            $note = $_POST['note_alb'];
 
             // Actualizar los datos en la tabla de álbumes
             $sql = "UPDATE albums SET

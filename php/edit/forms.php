@@ -58,7 +58,7 @@
       </div>
       <div class="container-fluid d-flex align-items-center justify-content-between py-1">
         <div class="navbar-header d-flex align-items-center">
-          <a class="navbar-brand text-uppercase text-reset" href="index.html">
+          <a class="navbar-brand text-uppercase text-reset" href="../../index.html">
             <div class="brand-text brand-big">
               <strong class="text-primary">CROWS | </strong><strong> PJ</strong>
             </div>
@@ -148,7 +148,7 @@
             </ul>
           </li>
           <li class="list-inline-item logout px-lg-2">
-            <a class="nav-link text-sm text-reset px-1 px-lg-0" id="logout" href="login.html">
+            <a class="nav-link text-sm text-reset px-1 px-lg-0" id="logout" href="../../login.php">
               <span class="d-none d-sm-inline-block">Logout </span>
               <svg class="svg-icon svg-icon-xs svg-icon-heavy">
                 <use xlink:href="#disable-1"></use>
@@ -172,25 +172,25 @@
       <span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Main</span>
       <ul class="list-unstyled">
         <li class="sidebar-item">
-          <a class="sidebar-link" href="index.html">
+          <a class="sidebar-link" href="../../index.html">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#real-estate-1"></use>
             </svg><span>Home </span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="tables.php">
+          <a class="sidebar-link" href="../../tables.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Tables </span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="charts.html">
+          <a class="sidebar-link" href="../../charts.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#sales-up-1"></use>
             </svg><span>Charts </span></a>
         </li>
         <li class="sidebar-item active">
-          <a class="sidebar-link" href="forms.php">
+          <a class="sidebar-link" href="../../forms.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#survey-1"></use>
             </svg><span>Forms </span></a>
@@ -207,7 +207,7 @@
           </ul>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="login.html">
+          <a class="sidebar-link" href="../../login.html">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#disable-1"></use>
             </svg><span>Login page </span></a>
@@ -252,7 +252,7 @@
       <div class="container-fluid py-2">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0 py-3 px-0">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Forms</li>
           </ol>
         </nav>
