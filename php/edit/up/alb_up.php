@@ -21,16 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Actualizar los datos en la tabla de álbumes
             $sql = "UPDATE albums SET
-            alb_cov = '$alb_cov',
-            name_a = '$name_a',
-            date_alb = '$date_alb',
-            totl_trck = $totl_trck,
-            gen_alb = '$gen_alb',
-            punct = $punct,
-            price = $price,
-            note = '$note'
-            WHERE id_alb = $id_alb";
+            alb_cov = ?,
+            name_a = ?,
+            date_alb = ?,
+            totl_trck = ?,
+            gen_alb = ?,
+            punct = ?,
+            price = ?,
+            note = ?
+            WHERE id_alb = ?";
             $up_album = $conn->prepare($sql);
+            $up_album->bind_param("sssiisdsi", $alb_cov, $name_a, $date_alb, $totl_trck, $gen_alb, $punct, $price, $note, $id_alb);
 
             if ($up_album->execute()) {
                 echo "Registro actualizado";
