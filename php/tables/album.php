@@ -11,7 +11,7 @@ $res = mysqli_query($conn, $alb);
     </div>
     <div class="card-body pt-0">
       <div class="table-responsive">
-        <table class="table mb-0 table-striped table-sm table-hover">
+        <table class="table mb-0 table-striped table-sm table-hover" id="alb_t">
           <thead>
             <tr>
               <th>id_Álbum</th>
@@ -42,7 +42,7 @@ $res = mysqli_query($conn, $alb);
                      <td>" . $row['punct'] . "★</td>
                      <td>$" . $row['price'] . "</td>
                      <td>" . $row['note'] . "</td>
-                     <td class='text-center align-middle'><button class='btn btn-secondary tde' type='button' value='" . $row['id_alb'] . "' data-bs-toggle='modal' data-bs-target='#modal1' name='albums'>
+                     <td class='text-center align-middle'><button class='btn btn-secondary tde' type='button' value='" . $row['id_alb'] . "' data-bs-toggle='modal' data-bs-target='#modal2' name='albums'>
                      <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);'>
                      <path d='m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 
                      1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z'></path>
@@ -87,7 +87,7 @@ $res = mysqli_query($conn, $alb);
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modal1Label">
-              Advertencia
+              ¡Advertencia!
             </h5>
             <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
@@ -96,12 +96,41 @@ $res = mysqli_query($conn, $alb);
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
-              Cerrar.
+            <i class='bx bx-x bx-tada' ></i>
             </button>
-            <a href='' class='btn btn-danger' id="juan_lego">Guardar cambios</a>
+            <a href='' class='btn btn-danger' id="juan_lego">
+            <i class='bx bxs-chevron-right bx-tada' ></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
+<!-- modal2 -->
+    <div class="modal fade text-start" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal2Label">
+              ¿Editar?
+            </h5>
+            <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="format-label mb-0" id="edt"></p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+            <i class='bx bx-x bx-tada' ></i>
+            </button>
+            <a href='' class='btn btn-danger' id="test">
+            <i class='bx bxs-chevron-right bx-tada' ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
 </div>

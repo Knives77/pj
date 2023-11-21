@@ -1,5 +1,24 @@
 <!-- Basic Form-->
 <?php
+if (isset($_GET["id"])) {
+  $id = $_GET["id"];
+  $sql = "SELECT * FROM albums where(id_alb=" . $id . ")";
+  $result  = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    // Obtiene los datos del paciente en variables
+    $row = $result->fetch_assoc();
+    $alb_cov = $row["alb_cov"];
+    $name_a = $row["name_a"];
+    $date_alb = $row["date_alb"];
+    $totl_trck = $row["totl_trck"];
+    $gen_alb = $row["gen_alb"];
+    $punct = $row["punct"];
+    $price = $row["price"];
+    $note = $row["note"];
+  } else {
+    echo "No se encontraron resultados";
+  }
+} else {
   $name_a = "***";
   $date_alb = "1111-11-11";
   $totl_trck = "13";
@@ -7,7 +26,9 @@
   $punct = "9.5";
   $price = "999.99";
   $note = "***";
+}
 ?>
+
 <div class="col-lg-12">
   <div class="card">
     <div class="card-header">
