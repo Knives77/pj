@@ -9,15 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="all,follow" />
   <!-- Choices.js-->
-  <link rel="stylesheet" href="vendor/choices.js/public/assets/styles/choices.min.css" />
+  <link rel="stylesheet" href="../../../vendor/choices.js/public/assets/styles/choices.min.css" />
   <!-- Google fonts - Muli-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700" />
   <!-- theme stylesheet-->
-  <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet" />
+  <link rel="stylesheet" href="../../../css/style.default.css" id="theme-stylesheet" />
   <!-- Custom stylesheet - for your changes-->
-  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="../../../css/custom.css" />
   <!-- Favicon-->
-  <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+  <link rel="shortcut icon" href="../../../img/favicon/favicon.ico" />
   <!--  boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -154,7 +154,7 @@
     <nav id="sidebar" class="shrinked">
       <!-- Sidebar Header-->
       <div class="sidebar-header d-flex align-items-center p-4">
-        <img class="border border-img-b avatar shadow-0 img-fluid rounded" src="img/avatar-6.jpg" alt="..." />
+        <img class="border border-img-b avatar shadow-0 img-fluid rounded" src="../../../img/avatar-6.jpg" alt="..." />
         <div class="ms-3 title">
           <h1 class="h5 mb-1">Re-L Mayer</h1>
           <p class="text-sm text-gray-700 mb-0 lh-1">Web Designer</p>
@@ -163,43 +163,43 @@
       <span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Main</span>
       <ul class="list-unstyled">
         <li class="sidebar-item">
-          <a class="sidebar-link" href="index.html">
+          <a class="sidebar-link" href="../../../index.html">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#real-estate-1"></use>
             </svg><span>Home </span></a>
         </li>
-        <li class="sidebar-item active">
-          <a class="sidebar-link" href="tables.php">
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="../../../tables.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Albums</span></a>
         </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="./php/tables/dist/song_table.php">
+        <li class="sidebar-item active">
+          <a class="sidebar-link" href="./song_table.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Songs</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./php/tables/dist/user_table.php">
+          <a class="sidebar-link" href="./user_table.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Users</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./php/tables/dist/sales_table.php">
+          <a class="sidebar-link" href="./sales_table.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Sales</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./php/tables/dist/alb_sales_table.php">
+          <a class="sidebar-link" href="./alb_sales_table.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Album_sales</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./php/tables/dist/song_sales_table.php">
+          <a class="sidebar-link" href="./song_sales_table.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Song_sales</span></a>
@@ -223,11 +223,11 @@
         </nav>
       </div>
       <!--  Tables -->
-      <?php require "./php/connection.php"; ?>
+      <?php require "../../connection.php"; ?>
       <section class="tables py-0">
         <div class="container-fluid">
           <div class="row gy-4">
-            <?php require "./php/tables/album.php" ?>
+            <?php require "../song.php" ?>
             <?php $conn->close(); ?>
           </div>
         </div>
@@ -245,14 +245,14 @@
     </div>
   </div>
   <!-- JavaScript files-->
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/just-validate/js/just-validate.min.js"></script>
-  <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../vendor/just-validate/js/just-validate.min.js"></script>
+  <script src="../../../vendor/chart.js/Chart.min.js"></script>
+  <script src="../../../vendor/choices.js/public/assets/scripts/choices.min.js"></script>
   <!-- Main File-->
-  <script src="js/front.js"></script>
-  <script src="js/del_reg.js"></script>
-  <script src="js/notify_tables.js"></script>
+  <script src="../../../js/front.js"></script>
+  <script src="./js/del_reg.js"></script>
+  <script src="./js/notify_tables.js"></script>
   <script>
     // ------------------------------------------------------- //
     //   Inject SVG Sprite -

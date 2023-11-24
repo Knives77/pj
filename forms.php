@@ -174,61 +174,33 @@
               <use xlink:href="#portfolio-grid-1"></use>
             </svg><span>Tables </span></a>
         </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="charts.html">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#sales-up-1"></use>
-            </svg><span>Charts </span></a>
-        </li>
         <li class="sidebar-item active">
           <a class="sidebar-link" href="forms.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#survey-1"></use>
             </svg><span>Forms </span></a>
         </li>
+
         <li class="sidebar-item">
-          <a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse">
+          <a class="sidebar-link" href="#dropdownForms" data-bs-toggle="collapse">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#browser-window-1"></use>
-            </svg><span>Example dropdown </span></a>
-          <ul class="collapse list-unstyled" id="exampledropdownDropdown">
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
+              <use xlink:href="#survey-1"></use>
+            </svg><span>Forms</span></a>
+          <ul class="collapse list-unstyled" id="dropdownForms">
+            <li><a class="sidebar-link" href="#">Albums</a></li>
+            <li><a class="sidebar-link" href="#">Songs</a></li>
+            <li><a class="sidebar-link" href="#">Users</a></li>
+            <li><a class="sidebar-link" href="#">Sales</a></li>
+            <li><a class="sidebar-link" href="#">Album sales</a></li>
+            <li><a class="sidebar-link" href="#">Song sales</a></li>
           </ul>
         </li>
+
         <li class="sidebar-item">
           <a class="sidebar-link" href="login.html">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#disable-1"></use>
             </svg><span>Login page </span></a>
-        </li>
-      </ul>
-      <span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Extras</span>
-      <ul class="list-unstyled">
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#imac-screen-1"></use>
-            </svg><span>Demo </span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#chart-1"></use>
-            </svg><span>Demo </span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#quality-1"></use>
-            </svg><span>Demo </span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#security-shield-1"></use>
-            </svg><span>Demo </span></a>
         </li>
       </ul>
     </nav>
