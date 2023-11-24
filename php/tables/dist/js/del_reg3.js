@@ -6,14 +6,14 @@ var test = document.getElementById("test");
 $(document).ready(function () {
   $(".tdd").on("click", function (event) {
     //console.log(this.value);
-    p.textContent = `Desea eliminar el registro [${this.value}] de la tabla '${this.name}'`;
-    lego.href = `../../deletes/alb_del.php?table=${this.name}&id=${this.value}`;
+    p.textContent = `¿Desea eliminar el registro [${this.value}, ${this.name}] de la tabla 'album_sales'?`;
+    lego.href = `../../deletes/alb_del.php?table=song_sales&id1=${this.value}&id2=${this.name}`;
     event.preventDefault();
   });
   $(".tde").on("click", function (event) {
     console.log(this.name);
     console.log(p2);
-    p2.textContent = `Desea editar el registro [${this.value}] de la tabla '${this.name}'`;
+    p2.textContent = `¿Desea editar el registro [${this.value}] de la tabla song_sales?`;
     //test.href = `../../edit/forms.php?table=albums&id=${this.value}`;
     event.preventDefault();
   });

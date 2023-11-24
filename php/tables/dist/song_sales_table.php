@@ -251,7 +251,7 @@
   <script src="../../../vendor/choices.js/public/assets/scripts/choices.min.js"></script>
   <!-- Main File-->
   <script src="../../../js/front.js"></script>
-  <script src="./js/del_reg.js"></script>
+  <script src="./js/del_reg3.js"></script>
   <script src="./js/notify_tables.js"></script>
   <script>
     // ------------------------------------------------------- //

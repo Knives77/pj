@@ -31,49 +31,53 @@
 <?php
 require "../connection.php";
 //recuperar id 
-$id = $_GET["id"];
-//obtener ruta de el album
-$ruta_Img = "SELECT alb_cov as cover FROM albums WHERE id_alb=$id";
-$res = str_replace("./img/uploads/", "../../img/uploads/", mysqli_query($conn, $ruta_Img)->fetch_object()->cover);
-//obtener numero de registros a borrar
-$songs = "select id_song as ids from songs where id_alb=$id;";
-$rsg = $conn->query($songs);
-$albumSales = "select id_sale as idsa from album_sales where id_alb=$id;";
-$ralb = $conn->query($albumSales);
+$tabla = $_GET["table"];
 
-// Comprobar consulta
-if (!$rsg) {
-    // Mensaje de error
-    echo "Error: " . $conn->error;
-} else {
-    //Crear array
-    $ids = array();
-    while ($row1 = $rsg->fetch_assoc()) {
-        // Agrega cada valor de idr al array
-        $ids[] = $row1['ids'];
-    }
-    // Imprime el resultado deseado
-    $stringSongs = implode(', ', $ids);
-}
+switch ($tabla) {
+    case "albums":
+        //Obtener ruta de el album
+        $id = $_GET["id"];
+        $ruta_Img = "SELECT alb_cov as cover FROM albums WHERE id_alb=$id";
+        $res = str_replace("./img/uploads/", "../../img/uploads/", mysqli_query($conn, $ruta_Img)->fetch_object()->cover);
+        //obtener numero de registros a borrar
+        $songs = "select id_song as ids from songs where id_alb=$id;";
+        $rsg = $conn->query($songs);
+        $albumSales = "select id_sale as idsa from album_sales where id_alb=$id;";
+        $ralb = $conn->query($albumSales);
 
-// Comprobar consulta
-if (!$ralb) {
-    // Mensaje de error
-    echo "Error: " . $conn->error;
-} else {
-    //Crear array
-    $idAlb = array();
-    while ($row2 = $ralb->fetch_assoc()) {
-        // Agrega cada valor de idr al array
-        $idAlb[] = $row2['idsa'];
-    }
-    // Imprime el resultado deseado
-    $stringSales = implode(', ', $idAlb);
-}
-//Varificar si existen relaciones
-if (!empty($stringSongs)) {
-    if (!empty($stringSales)) {
-        echo "
+        // Comprobar consulta
+        if (!$rsg) {
+            // Mensaje de error
+            echo "Error: " . $conn->error;
+        } else {
+            //Crear array
+            $ids = array();
+            while ($row1 = $rsg->fetch_assoc()) {
+                // Agrega cada valor de idr al array
+                $ids[] = $row1['ids'];
+            }
+            // Imprime el resultado deseado
+            $stringSongs = implode(', ', $ids);
+        }
+
+        // Comprobar consulta
+        if (!$ralb) {
+            // Mensaje de error
+            echo "Error: " . $conn->error;
+        } else {
+            //Crear array
+            $idAlb = array();
+            while ($row2 = $ralb->fetch_assoc()) {
+                // Agrega cada valor de idr al array
+                $idAlb[] = $row2['idsa'];
+            }
+            // Imprime el resultado deseado
+            $stringSales = implode(', ', $idAlb);
+        }
+        //Varificar si existen relaciones
+        if (!empty($stringSongs)) {
+            if (!empty($stringSales)) {
+                echo "
             <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
             <table class='table mb-0 table-striped table-sm table-hover'>
                 <thead>
@@ -104,8 +108,8 @@ if (!empty($stringSongs)) {
                     </tr>
                 </tbody>
             </table>";
-    } else {
-        echo "
+            } else {
+                echo "
             <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
             <table class='table mb-0 table-striped table-sm table-hover'>
                 <thead>
@@ -127,10 +131,10 @@ if (!empty($stringSongs)) {
                     </tr>
                 </tbody>
             </table>";
-    }
-} else {
-    if (!empty($stringSales)) {
-        echo "
+            }
+        } else {
+            if (!empty($stringSales)) {
+                echo "
             <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
             <table class='table mb-0 table-striped table-sm table-hover'>
                 <thead>
@@ -152,28 +156,307 @@ if (!empty($stringSongs)) {
                     </tr>
                 </tbody>
             </table>";
-    } else {
-        //Eliminar registro
-        $sql = "DELETE FROM albums WHERE id_alb = $id";
-
-        if (mysqli_query($conn, $sql) == true) {
-            if (file_exists($res) == true) {
-                if (unlink($res)) {
-                    echo "Se eliminó correctamente.";
-                } else {
-                    echo "Error inesperado";
-                }
             } else {
-                echo "Se eliminó con error, no se encontró imagen";
+                //Eliminar registro
+                $sql = "DELETE FROM albums WHERE id_alb = $id";
+
+                if (mysqli_query($conn, $sql) == true) {
+                    if (file_exists($res) == true) {
+                        if (unlink($res)) {
+                            echo "Se eliminó correctamente.";
+                        } else {
+                            echo "Error inesperado";
+                        }
+                    } else {
+                        echo "Se eliminó con error, no se encontró imagen";
+                    }
+                } else {
+                    echo "Error en la consulta" . $conn->error;
+                }
+            }
+        }
+        break;
+    case "songs":
+        $id = $_GET["id"];
+        //obtener numero de registros a borrar
+        $songSales = "select id_sale as idsa from song_sales where id_song=$id;";
+        $ralb = $conn->query($songSales);
+
+        // Comprobar consulta
+        if (!$ralb) {
+            // Mensaje de error
+            echo "Error: " . $conn->error;
+        } else {
+            //Crear array
+            $idAlb = array();
+            while ($row2 = $ralb->fetch_assoc()) {
+                // Agrega cada valor de idr al array
+                $idAlb[] = $row2['idsa'];
+            }
+            // Imprime el resultado deseado
+            $stringSales = implode(', ', $idAlb);
+        }
+
+        if (!empty($stringSales)) {
+            echo "
+            <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
+            <table class='table mb-0 table-striped table-sm table-hover'>
+                <thead>
+                    <tr>
+                        <th>Tabla</th>
+                        <th>ID</th>
+                        <th>Buscar</th>
+                    </tr>
+                </thead>
+                <tbody id='tbody'>
+                    <tr>
+                        <th scope='row'>song_sales</th>
+                        <td>[$stringSales]</td>
+                        <td class='text-center align-middle'>
+                            <a href='' class='btn btn-info btn-sm' width='10px'>
+                                <svg xmlns='http://www.w3.org/2000/svg' height='15px' viewBox='0 0 500 500'><style>svg{fill:#ffffff}</style><path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/></svg>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>";
+        } else {
+            $delete_query = "DELETE FROM songs WHERE id_song = ?";
+            $stmt = $conn->prepare($delete_query);
+            $stmt->bind_param("i", $id);
+
+            if ($stmt->execute()) {
+                echo "Eliminado con exito.";
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+        }
+        break;
+    case "users":
+        //recuperar id 
+        $id = $_GET["id"];
+        //obtener numero de registros a borrar
+        $usrSales = "select id_sale as idsa from sales where id_usr=$id;";
+        $ralb = $conn->query($usrSales);
+
+        // Comprobar consulta
+        if (!$ralb) {
+            // Mensaje de error
+            echo "Error: " . $conn->error;
+        } else {
+            //Crear array
+            $idAlb = array();
+            while ($row2 = $ralb->fetch_assoc()) {
+                // Agrega cada valor de idr al array
+                $idAlb[] = $row2['idsa'];
+            }
+            // Imprime el resultado deseado
+            $stringSales = implode(', ', $idAlb);
+        }
+
+        if (!empty($stringSales)) {
+            echo "
+            <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
+            <table class='table mb-0 table-striped table-sm table-hover'>
+                <thead>
+                    <tr>
+                        <th>Tabla</th>
+                        <th>ID</th>
+                        <th>Buscar</th>
+                    </tr>
+                </thead>
+                <tbody id='tbody'>
+                    <tr>
+                        <th scope='row'>sales</th>
+                        <td>[$stringSales]</td>
+                        <td class='text-center align-middle'>
+                            <a href='' class='btn btn-info btn-sm' width='10px'>
+                                <svg xmlns='http://www.w3.org/2000/svg' height='15px' viewBox='0 0 500 500'><style>svg{fill:#ffffff}</style><path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/></svg>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>";
+        } else {
+            $delete_query = "DELETE FROM sales WHERE id_sale = ?";
+            $stmt = $conn->prepare($delete_query);
+            $stmt->bind_param("i", $id);
+
+            if ($stmt->execute()) {
+                echo "Venta eliminada exitosamente.";
+            } else {
+                echo "Error al eliminar la venta: " . $stmt->error;
+            }
+
+            $stmt->close();
+        }
+        break;
+    case "sales":
+        $id = $_GET["id"];
+        //obtener numero de registros a borrar
+        $albumSales = "select id_sale as ida from album_sales where id_sale=$id;";
+        $ralb = $conn->query($albumSales);
+
+        $songSales = "select id_sale as ids from song_sales where id_sale=$id;";
+        $rblb = $conn->query($songSales);
+
+        // Comprobar consulta
+        if (!$ralb) {
+            // Mensaje de error
+            echo "Error: " . $conn->error;
+        } else {
+            //Crear array
+            $idAlb = array();
+            while ($row2 = $ralb->fetch_assoc()) {
+                // Agrega cada valor de idr al array
+                $idAlb[] = $row2['ida'];
+            }
+            // Imprime el resultado deseado
+            $stringSalesa = implode(', ', $idAlb);
+        }
+
+        if (!$rblb) {
+            // Mensaje de error
+            echo "Error: " . $conn->error;
+        } else {
+            //Crear array
+            $idBlb = array();
+            while ($row2 = $rblb->fetch_assoc()) {
+                // Agrega cada valor de idr al array
+                $idBlb[] = $row2['ids'];
+            }
+            // Imprime el resultado deseado
+            $stringSongss = implode(', ', $idBlb);
+        }
+
+        if (!empty($stringSongss)) {
+            if (!empty($stringSalesa)) {
+                echo "
+            <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
+            <table class='table mb-0 table-striped table-sm table-hover'>
+                <thead>
+                    <tr>
+                        <th>Tabla</th>
+                        <th>ID</th>
+                        <th>Buscar</th>
+                    </tr>
+                </thead>
+                <tbody id='tbody'>
+                    <tr>
+                        <th scope='row'>song_sales</th>
+                        <td>[$stringSongss]</td>
+                        <td class='text-center align-middle'>
+                            <a href='' class='btn btn-info btn-sm' width='10px'>
+                                <svg xmlns='http://www.w3.org/2000/svg' height='15px' viewBox='0 0 500 500'><style>svg{fill:#ffffff}</style><path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/></svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>album_sales</th>
+                        <td>[$stringSalesa]</td>
+                        <td class='text-center align-middle'>
+                            <a href='' class='btn btn-info btn-sm' width='10px'>
+                                <svg xmlns='http://www.w3.org/2000/svg' height='15px' viewBox='0 0 500 500'><style>svg{fill:#ffffff}</style><path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/></svg>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>";
+            } else {
+                echo "
+            <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
+            <table class='table mb-0 table-striped table-sm table-hover'>
+                <thead>
+                    <tr>
+                        <th>Tabla</th>
+                        <th>ID</th>
+                        <th>Buscar</th>
+                    </tr>
+                </thead>
+                <tbody id='tbody'>
+                    <tr>
+                        <th scope='row'>songs</th>
+                        <td>[$stringSongss]</td>
+                        <td class='text-center align-middle'>
+                            <a href='' class='btn btn-info btn-sm' width='10px'>
+                                <svg xmlns='http://www.w3.org/2000/svg' height='15px' viewBox='0 0 500 500'><style>svg{fill:#ffffff}</style><path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/></svg>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>";
             }
         } else {
-            echo "Error en la consulta" . $conn->error;
+            if (!empty($stringSalesa)) {
+                echo "
+            <h4 class='h4 mb-2'>Necesitas eliminar: </h4>
+            <table class='table mb-0 table-striped table-sm table-hover'>
+                <thead>
+                    <tr>
+                        <th>Tabla</th>
+                        <th>ID</th>
+                        <th>Buscar</th>
+                    </tr>
+                </thead>
+                <tbody id='tbody'>
+                    <tr>
+                        <th scope='row'>album_sales</th>
+                        <td>[$stringSalesa]</td>
+                        <td class='text-center align-middle'>
+                            <a href='' class='btn btn-info btn-sm' width='10px'>
+                                <svg xmlns='http://www.w3.org/2000/svg' height='15px' viewBox='0 0 500 500'><style>svg{fill:#ffffff}</style><path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/></svg>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>";
+            } else {
+                // Preparar y ejecutar la consulta de eliminación
+                $id = $_GET["id"];
+                $delete_query = "DELETE FROM sales WHERE id_sale = ?";
+                $stmt = $conn->prepare($delete_query);
+                $stmt->bind_param("i", $id);
+
+                if ($stmt->execute()) {
+                    echo "Venta eliminada exitosamente.";
+                } else {
+                    echo "Error al eliminar la venta: " . $stmt->error;
+                }
+
+                $stmt->close();
+            }
         }
-    }
+        break;
+    case "album_sales":
+        // Preparar y ejecutar la consulta de eliminación
+        $id1 = $_GET["id1"];
+        $id2 = $_GET["id2"];
+        $del_alb_sa = "DELETE FROM album_sales WHERE `album_sales`.`id_sale` = $id1 AND `album_sales`.`id_alb` = $id2 ";
+        $stmt = $conn->prepare($del_alb_sa);
+        if ($stmt->execute()) {
+            echo "Venta de álbum eliminada exitosamente.";
+        } else {
+            echo "Error al eliminar la venta de álbum: " . $stmt->error;
+        }
+        $stmt->close();
+        break;
+    case "song_sales":
+        $id1 = $_GET["id1"];
+        $id2 = $_GET["id2"];
+        $del_alb_s = "DELETE FROM song_sales WHERE `song_sales`.`id_sale` = $id1 AND `song_sales`.`id_song` = $id2 ";
+        $stmt = $conn->prepare($del_alb_s);
+        if ($stmt->execute()) {
+            echo "Venta de cancion eliminada exitosamente.";
+        } else {
+            echo "Error al eliminar la venta de cancion de álbum: " . $stmt->error;
+        }
+        $stmt->close();
+        break;
 }
-
-
 $conn->close();
+
+
+
 ?>
 
 <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
