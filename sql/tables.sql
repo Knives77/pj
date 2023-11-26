@@ -50,7 +50,7 @@ CREATE TABLE songs (
   tims_plyd INT NOT NULL,
   price_s DECIMAL (3,2) NOT NULL CHECK (price_s >= 0 AND price_s <= 5),
   format_s VARCHAR(10) NOT NULL,
-  lyrics VARCHAR (200) NOT NULL,
+  lyrics VARCHAR (1000) NOT NULL,
   FOREIGN KEY(id_alb) REFERENCES albums(id_alb), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   PRIMARY KEY(id_song)
 );

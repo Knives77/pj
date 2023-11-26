@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    //evitar que al presionar enter se haga submit e ignore  el modal
+    $('#alb_form').on('keyup keypress', function (e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
+    }),
     $("#alb_form").submit(function (event) {
         // Evita el envío automático del formulario
         event.preventDefault();

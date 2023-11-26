@@ -168,39 +168,41 @@
               <use xlink:href="#real-estate-1"></use>
             </svg><span>Home </span></a>
         </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="tables.php">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#portfolio-grid-1"></use>
-            </svg><span>Tables </span></a>
-        </li>
         <li class="sidebar-item active">
           <a class="sidebar-link" href="forms.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#survey-1"></use>
-            </svg><span>Forms </span></a>
+            </svg><span>Albums</span></a>
         </li>
-
         <li class="sidebar-item">
-          <a class="sidebar-link" href="#dropdownForms" data-bs-toggle="collapse">
+          <a class="sidebar-link" href="forms_s.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
               <use xlink:href="#survey-1"></use>
-            </svg><span>Forms</span></a>
-          <ul class="collapse list-unstyled" id="dropdownForms">
-            <li><a class="sidebar-link" href="#">Albums</a></li>
-            <li><a class="sidebar-link" href="#">Songs</a></li>
-            <li><a class="sidebar-link" href="#">Users</a></li>
-            <li><a class="sidebar-link" href="#">Sales</a></li>
-            <li><a class="sidebar-link" href="#">Album sales</a></li>
-            <li><a class="sidebar-link" href="#">Song sales</a></li>
-          </ul>
+            </svg><span>Songs</span></a>
         </li>
-
         <li class="sidebar-item">
-          <a class="sidebar-link" href="login.html">
+          <a class="sidebar-link" href="forms_u.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#disable-1"></use>
-            </svg><span>Login page </span></a>
+              <use xlink:href="#survey-1"></use>
+            </svg><span>Users</span></a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="forms_sa.php">
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+              <use xlink:href="#survey-1"></use>
+            </svg><span>Sales</span></a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="forms_a_sa.php">
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+              <use xlink:href="#survey-1"></use>
+            </svg><span>Album sales</span></a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="forms_s_sa.php">
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+              <use xlink:href="#survey-1"></use>
+            </svg><span>Song sales</span></a>
         </li>
       </ul>
     </nav>
