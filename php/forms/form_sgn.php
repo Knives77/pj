@@ -28,7 +28,7 @@ $lyrics = "***";
                                 <div class="col-md-3">
                                     <label class="form-label" for="id_alb">id_alb</label>
                                     <div class="has-validation">
-                                        <input class="form-control" id="id_alb" type="number" name="ad_alb"
+                                        <input class="form-control" id="id_alb" type="number" name="id_alb"
                                             value="<?php echo $id_alb ?>" aria-describedby="id_alb" required min="1"
                                             max="<?php echo $id_alb ?>" />
                                         <div class="invalid-feedback" id="tims_s_help">
@@ -43,7 +43,7 @@ $lyrics = "***";
                                 <div class="col-md-9 mt-0 mb-1">
                                     <label class="form-label" for="nm_sgn">Nombre canción</label>
                                     <div class="has-validation">
-                                        <input class="form-control" id="nm_sgn" type="text"
+                                        <input class="form-control" id="name_sgn" type="text"
                                             value='<?php echo $name_s ?>' aria-describedby="nm_sgn_help" required
                                             minlength="1" maxlength="60" size="60" name="name_s" />
                                         <div class="invalid-feedback">
@@ -83,12 +83,12 @@ $lyrics = "***";
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label" for="tims_s">Reproducciones</label>
+                                    <label class="form-label" for="tims_plyd">Reproducciones</label>
                                     <div class="has-validation">
-                                        <input class="form-control" id="tims_s" type="number" name="tims_s"
-                                            value="<?php echo $tims_plyd ?>" aria-describedby="tims_s_help" required
+                                        <input class="form-control" id="tims_plyd" type="number" name="tims_plyd"
+                                            value="<?php echo $tims_plyd ?>" aria-describedby="tims_plyd_help" required
                                             min="1" max="444"/>
-                                        <div class="invalid-feedback" id="tims_s_help">
+                                        <div class="invalid-feedback" id="tims_plyd_help">
                                             Ingresa un número [0-999].
                                         </div>
                                         <div class="valid-feedback">
@@ -163,7 +163,7 @@ $lyrics = "***";
                         </path>
                     </svg>
                     <strong class="me-auto" style="color: #8a8d93;">Atención</strong>
-                    <small><a href="./tables.php"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    <small><a href="./php/tables/dist/song_table.php"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" style="fill: #8a8d93;">
                                 <path d="M10.061 19.061 17.121 12l-7.06-7.061-2.122 2.122L12.879 12l-4.94 4.939z">
                                 </path>
@@ -192,7 +192,7 @@ $lyrics = "***";
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p class="format-label mb-0">Se añadirá este registro a la tabla "albums"</p>
+                        <p class="format-label mb-0">Se añadirá este registro a la tabla "songs"</p>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
@@ -205,8 +205,6 @@ $lyrics = "***";
                 </div>
             </div>
         </div>
-
-
         </form>
     </div>
 </div>

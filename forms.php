@@ -168,6 +168,12 @@
               <use xlink:href="#real-estate-1"></use>
             </svg><span>Home </span></a>
         </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="tables.php">
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+              <use xlink:href="#portfolio-grid-1"></use>
+            </svg><span>Tables </span></a>
+        </li>
         <li class="sidebar-item active">
           <a class="sidebar-link" href="forms.php">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy">
