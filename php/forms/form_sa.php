@@ -162,7 +162,7 @@ $warranty_months = 12;
                                 <div id="div1" class="col-md-6">
                                     <label for="Álbumes" class="form-label">Álbumes (solo 12)</label>
                                     <div class="col-md-6">
-                                        <select class="form-control alb_sel" name="alb_sel" id="alb_sel"required>
+                                        <select class="form-control alb_sel" name="alb_sel" id="alb_sel" required>
                                             <!-- <option class="form-label">...</option> -->
                                             <?php
                                             $alb_query = 'SELECT id_alb as id, name_a as name_aa FROM albums;';
@@ -177,11 +177,31 @@ $warranty_months = 12;
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="row mt-2">
+                                    <div class="row mt-2" id="rowdv">
                                         <div class="col-md-8" id="div1-a">
+                                            <!-- <div name="test" class="mb-4">a</div> -->
                                         </div>
                                         <div class="col-md-4" id="div2-a">
+                                            <!-- <div name="test" class="mb-4">b</div> -->
                                         </div>
+                                        <!-- <div class="col-md-2" id="div3-a">
+                                            <button type="button" name="test" class='btn btn-danger mb-2'
+                                                style="background-color: #dc3545; border: 1px solid #dc3545;">
+                                                <svg xmlns='http://www.w3.org/2000/svg' height='1em'
+                                                    viewBox='0 0 384 512'>
+                                                    <style>
+                                                        svg {
+                                                            fill: rgb(255, 255, 255)
+                                                        }
+                                                    </style>
+                                                    <path d='M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3
+                                                     0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 
+                                                     45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 
+                                                     45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 
+                                                     0-45.3L237.3 256 342.6 150.6z' />
+                                                </svg>
+                                            </button>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <!-- ventas canciones -->
@@ -189,7 +209,6 @@ $warranty_months = 12;
                                     <label for="Canciones" class="form-label">Canciones solo (12)</label>
                                     <div class="col-md-6">
                                         <select class="form-control sgn_sel" name="sgn_sel" id="sgn_sel" required>
-                                            <option class="form-label">...</option>
                                             <?php
                                             $sgn_query = 'SELECT id_song as id, name_s as name_ss FROM songs;';
                                             $sgns = mysqli_query($conn, $sgn_query);
@@ -234,8 +253,8 @@ $warranty_months = 12;
                         </path>
                     </svg>
                     <strong class="me-auto" style="color: #8a8d93;">Atención</strong>
-                    <small><a href="./php/tables/dist/sales_table.php"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" style="fill: #8a8d93;">
+                    <small><a href="./php/tables/dist/sales_table.php"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" style="fill: #8a8d93;">
                                 <path d="M10.061 19.061 17.121 12l-7.06-7.061-2.122 2.122L12.879 12l-4.94 4.939z">
                                 </path>
                             </svg></a></small>

@@ -1,4 +1,5 @@
 <script>
+    //notificacón
     var notify = () => {
         var toastElList = [].slice.call(document.querySelectorAll('.toast'))
         var toastList = toastElList.map(function (toastEl) {
@@ -7,9 +8,10 @@
         toastList.forEach(toast => toast.hide());
         toastList.forEach(toast => toast.show());
     }
+    //notify();
 </script>
 <?php
-require "../connection.php";
+require_once "../connection.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $num_sales = "SELECT MAX(id_sale) AS max FROM sales";
     $sales = mysqli_query($conn, $num_sales)->fetch_object()->max;
@@ -79,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $i++;
                     }
                 } else {
+                    echo "<script>notify();</script>";
                     echo "Error, selecciona un valor del select...";
                 }
             } else if ($option == "songs") {
@@ -114,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $i++;
                     }
                 } else {
+                    echo "<script>notify();</script>";
                     echo "Error, selecciona un valor del select...";
                 }
             } else if ($option == "ambos") {
@@ -157,6 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             //Ejecutar la consulta
                             if ($conn->query($sql_sgn) === TRUE) {
                                 echo "Registro insertado en 'song_sales' correctamente. </br>";
+                            } else {
                                 echo "Error al insertar el registro: " . $conn->error;
                             }
                         }
@@ -165,6 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $i++;
                     }
                 } else {
+                    echo "<script>notify();</script>";
                     echo "Error, selecciona un valor para los select...";
                 }
             }
