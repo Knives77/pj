@@ -234,7 +234,7 @@ $warranty_months = 12;
                         </path>
                     </svg>
                     <strong class="me-auto" style="color: #8a8d93;">Atención</strong>
-                    <small><a href="./php/tables/dist/song_table.php"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                    <small><a href="./php/tables/dist/sales_table.php"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" style="fill: #8a8d93;">
                                 <path d="M10.061 19.061 17.121 12l-7.06-7.061-2.122 2.122L12.879 12l-4.94 4.939z">
                                 </path>
@@ -263,7 +263,7 @@ $warranty_months = 12;
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p class="format-label mb-0">Se añadirá este registro a la tabla "songs"</p>
+                        <p class="format-label mb-0">Se añadirá este registro a la tabla "sales"</p>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">

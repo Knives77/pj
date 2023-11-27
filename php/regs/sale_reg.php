@@ -1,3 +1,13 @@
+<script>
+    var notify = () => {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl)
+        })
+        toastList.forEach(toast => toast.hide());
+        toastList.forEach(toast => toast.show());
+    }
+</script>
 <?php
 require "../connection.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,20 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $query = "INSERT INTO `sales` (`id_sale`, `id_usr`, `keyword`, `date_sale`, `mode_sale`, `ttl_sale`, `payment_type`, `warranty_months`, `various_prdct`)
             VALUES (NULL, " . $id_usr . ", '" . $keyword . "', '" . $date_sale . "', '" . $mode_sale . "', '" . $ttl_sale . "', '" . $payment_type . "', '" . $warranty_months . "', '" . $various_prdct . "')";
-            echo $query;
+            // echo $query;
             // Ejecutar la consulta
             if ($conn->query($query) === TRUE) {
-                echo "<script>
-            var notify = () => {
-                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                var toastList = toastElList.map(function (toastEl) {
-                    return new bootstrap.Toast(toastEl)
-                })
-                toastList.forEach(toast => toast.hide());
-                toastList.forEach(toast => toast.show());
-            }
-            notify();
-            </script>";
+                echo "<script>notify();</script>";
                 echo "Registro insertado correctamente.";
             } else {
                 echo "<script>notify();</script>";
@@ -58,17 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     //Ejecutar la consulta
                     if ($conn->query($query) === TRUE) {
-                        echo "<script>
-                         var notify = () => {
-                             var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                             var toastList = toastElList.map(function (toastEl) {
-                                 return new bootstrap.Toast(toastEl)
-                             })
-                             toastList.forEach(toast => toast.hide());
-                             toastList.forEach(toast => toast.show());
-                         }
-                         notify();
-                         </script>";
+                        echo "<script>notify();</script>";
                         echo "Registro insertado en 'sales' correctamente. </br>";
                     } else {
                         echo "<script>notify();</script>";
@@ -79,20 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $sql_alb = "INSERT INTO album_sales VALUES (NULL, $sales, " . $el_alb[$i] . ")";
                             //Ejecutar la consulta
                             if ($conn->query($sql_alb) === TRUE) {
-                                echo "<script>
-                          var notify = () => {
-                              var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                              var toastList = toastElList.map(function (toastEl) {
-                                  return new bootstrap.Toast(toastEl)
-                              })
-                              toastList.forEach(toast => toast.hide());
-                              toastList.forEach(toast => toast.show());
-                          }
-                          notify();
-                          </script>";
                                 echo "Registro insertado en 'album_sales' correctamente. </br>";
                             } else {
-                                echo "<script>notify();</script>";
                                 echo "Error al insertar el registro: " . $conn->error;
                             }
                         }
@@ -114,14 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     //Ejecutar la consulta
                     if ($conn->query($query) === TRUE) {
                         echo "<script>
-                         var notify = () => {
-                             var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                             var toastList = toastElList.map(function (toastEl) {
-                                 return new bootstrap.Toast(toastEl)
-                             })
-                             toastList.forEach(toast => toast.hide());
-                             toastList.forEach(toast => toast.show());
-                         }
                          notify();
                          </script>";
                         echo "Registro insertado en 'sales' correctamente. </br>";
@@ -134,20 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $sql_sgn = "INSERT INTO song_sales VALUES (NULL, $sales, " . $el_sgn[$i] . ")";
                             //Ejecutar la consulta
                             if ($conn->query($sql_sgn) === TRUE) {
-                                echo "<script>
-                          var notify = () => {
-                              var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                              var toastList = toastElList.map(function (toastEl) {
-                                  return new bootstrap.Toast(toastEl)
-                              })
-                              toastList.forEach(toast => toast.hide());
-                              toastList.forEach(toast => toast.show());
-                          }
-                          notify();
-                          </script>";
                                 echo "Registro insertado en 'song_sales' correctamente. </br>";
                             } else {
-                                echo "<script>notify();</script>";
                                 echo "Error al insertar el registro: " . $conn->error;
                             }
                         }
@@ -170,14 +128,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     //Ejecutar la consulta
                     if ($conn->query($query) === TRUE) {
                         echo "<script>
-                         var notify = () => {
-                             var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                             var toastList = toastElList.map(function (toastEl) {
-                                 return new bootstrap.Toast(toastEl)
-                             })
-                             toastList.forEach(toast => toast.hide());
-                             toastList.forEach(toast => toast.show());
-                         }
                          notify();
                          </script>";
                         echo "Registro insertado en 'sales' correctamente. </br>";
@@ -191,20 +141,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $sql_alb = "INSERT INTO album_sales VALUES (NULL, $sales, " . $el_alb[$i] . ")";
                             //Ejecutar la consulta
                             if ($conn->query($sql_alb) === TRUE) {
-                                echo "<script>
-                          var notify = () => {
-                              var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                              var toastList = toastElList.map(function (toastEl) {
-                                  return new bootstrap.Toast(toastEl)
-                              })
-                              toastList.forEach(toast => toast.hide());
-                              toastList.forEach(toast => toast.show());
-                          }
-                          notify();
-                          </script>";
                                 echo "Registro insertado en 'album_sales' correctamente. </br>";
                             } else {
-                                echo "<script>notify();</script>";
                                 echo "Error al insertar el registro: " . $conn->error;
                             }
                         }
@@ -218,20 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $sql_sgn = "INSERT INTO song_sales VALUES (NULL, $sales, " . $el_sgn[$i] . ")";
                             //Ejecutar la consulta
                             if ($conn->query($sql_sgn) === TRUE) {
-                                echo "<script>
-                          var notify = () => {
-                              var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                              var toastList = toastElList.map(function (toastEl) {
-                                  return new bootstrap.Toast(toastEl)
-                              })
-                              toastList.forEach(toast => toast.hide());
-                              toastList.forEach(toast => toast.show());
-                          }
-                          notify();
-                          </script>";
                                 echo "Registro insertado en 'song_sales' correctamente. </br>";
-                            } else {
-                                echo "<script>notify();</script>";
                                 echo "Error al insertar el registro: " . $conn->error;
                             }
                         }
