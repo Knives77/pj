@@ -24,6 +24,14 @@ $(document).ready(function () {
         }
     });
 
+    $('#sale_form').on('keyup keypress', function (e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
     //albums
     $("#alb_form").submit(function (event) {
         // Evita el envío automático del formulario
