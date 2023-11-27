@@ -84,7 +84,7 @@ CREATE TABLE sales (
   keyword VARCHAR(70) NOT NULL,
   date_sale DATE NOT NULL,
   mode_sale VARCHAR (10) NOT NULL CHECK (mode_sale = 'Tienda' OR mode_sale = 'Línea'),
-  ttl_sale DECIMAL(6,2) NOT NULL CHECK (ttl_sale >= 0 AND ttl_sale <= 5500),
+  ttl_sale DECIMAL(7,2) NOT NULL CHECK (ttl_sale >= 0 AND ttl_sale <= 10500),
   payment_type VARCHAR(50) NOT NULL,
   warranty_months INT(2) NOT NULL CHECK (warranty_months >= 0 AND warranty_months <= 24),
   various_prdct BOOLEAN NOT NULL,
@@ -95,9 +95,10 @@ DESC sales;
 
 /*Creamos la tabla "album_sales" */
 CREATE TABLE album_sales (
+  id_album_sale INT AUTO_INCREMENT,
   id_sale INT NOT NULL,
   id_alb INT NOT NULL,
-  CONSTRAINT id_alb_sale PRIMARY KEY (id_sale, id_alb),
+  PRIMARY KEY(id_album_sale),
   FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   FOREIGN KEY (id_alb) REFERENCES albums(id_alb) /* ON UPDATE CASCADE ON DELETE CASCADE */
 );
@@ -106,9 +107,10 @@ DESC album_sales;
 
 /*Creamos la tabla "song_sales" */
 CREATE TABLE song_sales (
+  id_song_sale INT AUTO_INCREMENT,
   id_sale INT NOT NULL,
   id_song INT NOT NULL,
-  CONSTRAINT id_song_sale PRIMARY KEY (id_sale, id_song),
+  PRIMARY KEY(id_song_sale),
   FOREIGN KEY (id_sale) REFERENCES sales(id_sale), /* ON UPDATE CASCADE ON DELETE CASCADE,*/
   FOREIGN KEY (id_song) REFERENCES songs(id_song) /* ON UPDATE CASCADE ON DELETE CASCADE*/
 );
@@ -205,32 +207,32 @@ INSERT INTO sales
 /*Insert de "album_sales" */
 INSERT INTO album_sales 
   VALUES
-(3, 1),
-(8, 3),
-(10, 2),
-(6, 4),
-(1, 1),
-(5, 2),
-(14, 3),
-(2, 1),
-(7, 4),
-(12, 2);
+(NULL, 3, 1),
+(NULL, 8, 3),
+(NULL, 10, 2),
+(NULL, 6, 4),
+(NULL, 1, 1),
+(NULL, 5, 2),
+(NULL, 14, 3),
+(NULL, 2, 1),
+(NULL, 7, 4),
+(NULL, 12, 2);
 
 /*Insert de "song_sales" */
 INSERT INTO song_sales 
   VALUES
-(7, 4),
-(11, 7),
-(6, 1),
-(9, 5),
-(3, 7),
-(5, 9),
-(14, 3),
-(12, 15),
-(2, 20),
-(13, 6),
-(8, 10),
-(15, 17),
-(4, 12),
-(1, 2),
-(10, 8);
+(NULL, 7, 4),
+(NULL, 11, 7),
+(NULL, 6, 1),
+(NULL, 9, 5),
+(NULL, 3, 7),
+(NULL, 5, 9),
+(NULL, 14, 3),
+(NULL, 12, 15),
+(NULL, 2, 20),
+(NULL, 13, 6),
+(NULL, 8, 10),
+(NULL, 15, 17),
+(NULL, 4, 12),
+(NULL, 1, 2),
+(NULL, 10, 8);

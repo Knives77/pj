@@ -16,6 +16,7 @@ $album_sales_result = mysqli_query($conn, $album_sales_query);
                 <table class="table mb-0 table-striped table-sm table-hover" id="album_sales_t">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>ID Venta</th>
                             <th>ID Álbum</th>
                             <th>Editar</th>
@@ -28,6 +29,7 @@ $album_sales_result = mysqli_query($conn, $album_sales_query);
                             while ($album_sale_row = $album_sales_result->fetch_assoc()) {
                                 echo "
                                    <tr>
+                                     <th scope='row'>" . $album_sale_row['id_album_sale'] . "</th>
                                      <th scope='row'>" . $album_sale_row['id_sale'] . "</th>
                                      <td class='align-middle'>" . $album_sale_row['id_alb'] . "</td>
                                      <td class='text-center align-middle'><button class='btn btn-secondary tde' type='button' value='". $album_sale_row['id_sale'] ."' name='".$album_sale_row['id_alb']."' data-bs-toggle='modal' data-bs-target='#modal2'>

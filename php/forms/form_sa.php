@@ -148,39 +148,65 @@ $warranty_months = 12;
                                     <input class="form-check-input" id="deshabilitar" type="checkbox"
                                         name="deshabilitar">
                                     <label for="deshabilitar" class="form-label"> Deshabilitar </label>
-                                    <input class="form-check-input opt"style="margin-left: 50px;" id="albums"
-                                        type="radio" name="option" />
-                                        <label class="form-label" for="albums">Álbumes</label>
-                                        <input class="form-check-input opt"style="margin-left: 50px;" id="canciones"
-                                            type="radio" name="option" />
+                                    <input class="form-check-input opt" style="margin-left: 50px;" id="albums"
+                                        type="radio" name="option" value="albums" />
+                                    <label class="form-label" for="albums">Álbumes</label>
+                                    <input class="form-check-input opt" style="margin-left: 50px;" id="canciones"
+                                        type="radio" name="option" value="songs" />
                                     <label class="form-label" for="songs">Canciones</label>
                                     <input class="form-check-input opt" style="margin-left: 50px;" id="ambos"
-                                        type="radio" name="option" />
+                                        type="radio" name="option" value="ambos" />
                                     <label class="form-label" for="ambos">Ambos</label>
                                 </div>
+                                <!-- ventas albums -->
                                 <div id="div1" class="col-md-6">
-                                    <label for="Álbumes" class="form-label">Álbumes</label>
-                                    <div class="row">
-                                        <div class="col-md-9" id="div1-a" >
-                                            <input class="form-check-input" id="test" type="checkbox" name="test">
-                                            <label for="test" class="form-label"> test</label>
+                                    <label for="Álbumes" class="form-label">Álbumes (solo 12)</label>
+                                    <div class="col-md-6">
+                                        <select class="form-control alb_sel" name="alb_sel" id="alb_sel"required>
+                                            <!-- <option class="form-label">...</option> -->
+                                            <?php
+                                            $alb_query = 'SELECT id_alb as id, name_a as name_aa FROM albums;';
+                                            $albs = mysqli_query($conn, $alb_query);
+                                            if ($albs->num_rows > 0) {
+                                                while ($row = $albs->fetch_object()) {
+                                                    $id_aa = $row->id;
+                                                    $name_aa = $row->name_aa;
+                                                    echo "<option value='$id_aa' name='$name_aa'>$name_aa</option>";
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-8" id="div1-a">
                                         </div>
-                                        <div class="col-md-3" id="div2-a" >
-                                            <input class="form-control" id="ttl_alb" type="number" name="ttl_alb"
-                                                value="0" min="0" max="12" />
+                                        <div class="col-md-4" id="div2-a">
                                         </div>
                                     </div>
                                 </div>
+                                <!-- ventas canciones -->
                                 <div id="div2" class="col-md-6">
-                                    <label for="Canciones" class="form-label">Canciones</label>
-                                    <div class="row">
-                                        <div class="col-md-9" id="div1-s">
-                                            <input class="form-check-input" id="test2" type="checkbox" name="test2">
-                                            <label for="test2" class="form-label"> test2</label>
+                                    <label for="Canciones" class="form-label">Canciones solo (12)</label>
+                                    <div class="col-md-6">
+                                        <select class="form-control sgn_sel" name="sgn_sel" id="sgn_sel" required>
+                                            <option class="form-label">...</option>
+                                            <?php
+                                            $sgn_query = 'SELECT id_song as id, name_s as name_ss FROM songs;';
+                                            $sgns = mysqli_query($conn, $sgn_query);
+                                            if ($sgns->num_rows > 0) {
+                                                while ($row = $sgns->fetch_object()) {
+                                                    $id_ss = $row->id;
+                                                    $name_ss = $row->name_ss;
+                                                    echo "<option value='$id_ss' name='$name_ss'>$name_ss</option>";
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-8" id="div1-s">
                                         </div>
-                                        <div class="col-md-3" id="div2-s">
-                                            <input class="form-control" id="ttl_alb" type="number" name="ttl_alb"
-                                                value="0" min="0" max="12" />
+                                        <div class="col-md-4" id="div2-s">
                                         </div>
                                     </div>
                                 </div>

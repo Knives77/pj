@@ -16,6 +16,7 @@ $song_sales_result = mysqli_query($conn, $song_sales_query);
             <table class="table mb-0 table-striped table-sm table-hover" id="song_sales_t">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>ID Venta</th>
                             <th>ID Canción</th>
                             <!-- Add more columns as needed -->
@@ -29,6 +30,7 @@ $song_sales_result = mysqli_query($conn, $song_sales_query);
                             while ($song_sale_row = $song_sales_result->fetch_assoc()) {
                                 echo "
                                    <tr>
+                                     <th scope='row'>" . $song_sale_row['id_song_sale'] . "</th>
                                      <th scope='row'>" . $song_sale_row['id_sale'] . "</th>
                                      <td class='align-middle'>" . $song_sale_row['id_song'] . "</td>
                                      <td class='text-center align-middle'><button class='btn btn-secondary tde' type='button' value='" . $song_sale_row['id_sale'] . ", " . $song_sale_row['id_song'] . "' data-bs-toggle='modal' data-bs-target='#modal2'>
