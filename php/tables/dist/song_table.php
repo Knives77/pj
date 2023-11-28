@@ -276,7 +276,7 @@
       $(".tdd").on("click", function (event) {
         //console.log(this.value);
         p.textContent = `Desea eliminar el registro [${this.value}] de la tabla '${this.name}'`;
-        lego.href = `./php/deletes/alb_del.php?table=songs&id=${this.value}`;
+        lego.href = `../../deletes/alb_del.php?table=songs&id=${this.value}`;
         event.preventDefault();
       });
       $(".tde").on("click", function (event) {
