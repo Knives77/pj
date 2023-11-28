@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>CROWS | PJ</title>
   <meta name="description" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=no">
   <meta name="robots" content="all,follow" />
   <!-- Choices.js-->
   <link rel="stylesheet" href="../../../vendor/choices.js/public/assets/styles/choices.min.css" />

@@ -198,18 +198,6 @@
               <use xlink:href="#survey-1"></use>
             </svg><span>Sales</span></a>
         </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="forms_a_sa.php">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#survey-1"></use>
-            </svg><span>Album sales</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="forms_s_sa.php">
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-              <use xlink:href="#survey-1"></use>
-            </svg><span>Song sales</span></a>
-        </li>
       </ul>
     </nav>
     <div class="page-content form-page">

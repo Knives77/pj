@@ -1,7 +1,8 @@
 <!-- Basic Form-->
 <?php
-$query_id_alb = "SELECT MAX(id_alb) as id_alb from songs";
-$id_alb = mysqli_query($conn, $query_id_alb)->fetch_object()->id_alb;
+// $query_id_alb = "SELECT MAX(id_alb) as id_alb from songs";
+// $id_alb = mysqli_query($conn, $query_id_alb)->fetch_object()->id_alb;
+$id_alb = "Vs.";
 $name_s = "***";
 $date_s = "1111-11-11";
 $durtn = "00:00:00";
@@ -25,22 +26,27 @@ $lyrics = "***";
                     <div class="row">
                         <div class="col-md-6 mt-2">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label" for="id_alb">id_alb</label>
-                                    <div class="has-validation">
-                                        <input class="form-control" id="id_alb" type="number" name="id_alb"
-                                            value="<?php echo $id_alb ?>" aria-describedby="id_alb" required min="1"
-                                            max="<?php echo $id_alb ?>" />
-                                        <div class="invalid-feedback" id="tims_s_help">
-                                            Ingresa un número [1-
-                                            <?php echo $id_alb ?>].
-                                        </div>
-                                        <div class="valid-feedback">
-                                            ¡Bien!
-                                        </div>
-                                    </div>
+                                <!-- id_alb -->
+                                <div class="col-md-6">
+                                    <label for="id_alb" class="form-label">Álbum</label>
+                                    <select class="form-control" name="id_alb" id="id_alb" required>
+                                        <?php
+                                        $alb_query = 'SELECT id_alb as id, name_a as name_aa FROM albums;';
+                                        $albs = mysqli_query($conn, $alb_query);
+                                        if ($albs->num_rows > 0) {
+                                            while ($row = $albs->fetch_object()) {
+                                                $id_aa = $row->id;
+                                                $name_aa = $row->name_aa;
+                                                // echo "<option value='$id_name_aa'>$name_aa</option>";
+                                                echo "<option value='$id_aa'";
+                                                echo ($name_aa == $id_alb) ? 'selected' : '';
+                                                echo ">$name_aa</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
-                                <div class="col-md-9 mt-0 mb-1">
+                                <div class="col-md-6 mt-0 mb-1">
                                     <label class="form-label" for="nm_sgn">Nombre canción</label>
                                     <div class="has-validation">
                                         <input class="form-control" id="name_sgn" type="text"
@@ -72,8 +78,9 @@ $lyrics = "***";
                                 <div class="col-md-6">
                                     <label class="form-label" for="durtn">Duración</label>
                                     <div class="has-validation">
-                                        <input class="form-control" id="durtn" type="text" name="durtn" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]"
-                                            value="<?php echo $durtn ?>" aria-describedby="durtn_help" required/>
+                                        <input class="form-control" id="durtn" type="text" name="durtn"
+                                            pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]"
+                                            value="<?php echo $durtn ?>" aria-describedby="durtn_help" required />
                                         <div class="invalid-feedback" id="durtn_help">
                                             Ingresa una duración valida.
                                         </div>
@@ -87,7 +94,7 @@ $lyrics = "***";
                                     <div class="has-validation">
                                         <input class="form-control" id="tims_plyd" type="number" name="tims_plyd"
                                             value="<?php echo $tims_plyd ?>" aria-describedby="tims_plyd_help" required
-                                            min="1" max="444"/>
+                                            min="1" max="444" />
                                         <div class="invalid-feedback" id="tims_plyd_help">
                                             Ingresa un número [0-999].
                                         </div>
@@ -163,8 +170,8 @@ $lyrics = "***";
                         </path>
                     </svg>
                     <strong class="me-auto" style="color: #8a8d93;">Atención</strong>
-                    <small><a href="./php/tables/dist/song_table.php"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" style="fill: #8a8d93;">
+                    <small><a href="./php/tables/dist/song_table.php"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" style="fill: #8a8d93;">
                                 <path d="M10.061 19.061 17.121 12l-7.06-7.061-2.122 2.122L12.879 12l-4.94 4.939z">
                                 </path>
                             </svg></a></small>
