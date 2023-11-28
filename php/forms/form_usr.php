@@ -12,7 +12,7 @@ $code_post = "12345";
 $colony = "***";
 $munic = "***";
 $state = "***";
-$phone_n = "1234567890";
+$phone_n = "123-456-7890";
 $email = "1@1.com";
 $psswd = "***";
 ?>
@@ -205,7 +205,7 @@ $psswd = "***";
                                     <div class="has-validation">
                                         <input class="form-control" id="phone_n" type="tel" name="phone_n"
                                             value="<?php echo $phone_n ?>" aria-describedby="phone_n_help" required
-                                            pattern="[0-9]{10}" />
+                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                                         <div class="invalid-feedback">
                                             Por favor ingresa un número de teléfono válido de 10 dígitos.
                                         </div>
