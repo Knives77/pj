@@ -276,14 +276,14 @@
       $(".tdd").on("click", function (event) {
         //console.log(this.value);
         p.textContent = `Desea eliminar el registro [${this.value}] de la tabla '${this.name}'`;
-        lego.href = `./php/deletes/alb_del.php?table=albums&id=${this.value}`;
+        lego.href = `./php/deletes/alb_del.php?table=songs&id=${this.value}`;
         event.preventDefault();
       });
       $(".tde").on("click", function (event) {
         console.log(this.name);
         console.log(p2);
         p2.textContent = `Desea editar el registro [${this.value}] de la tabla '${this.name}'`;
-        test.href = `../../../forms_s.php?table=songs&id=${this.value}`;
+        test.href = `../../edit/form_s.php?table=songs&id=${this.value}`;
         event.preventDefault();
       });
     });
