@@ -64,7 +64,7 @@ $(document).ready(function () {
             $("#div2-s").children().prop('disabled', false);
         }
     });
-    $("#albums").click();
+    $("#deshabilitar").click();
 });
 
 select.addEventListener("change", (event) => {

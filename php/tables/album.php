@@ -126,8 +126,5 @@ $res = mysqli_query($conn, $alb);
         </div>
       </div>
     </div>
-
-
-
   </div>
 </div>

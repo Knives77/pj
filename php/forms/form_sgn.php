@@ -1,15 +1,38 @@
 <!-- Basic Form-->
 <?php
+require_once("./php/connection.php");
 // $query_id_alb = "SELECT MAX(id_alb) as id_alb from songs";
 // $id_alb = mysqli_query($conn, $query_id_alb)->fetch_object()->id_alb;
-$id_alb = "Vs.";
-$name_s = "***";
-$date_s = "1111-11-11";
-$durtn = "00:00:00";
-$tims_plyd = "13";
-$price_s = "5.00";
-$format_s = "flac";
-$lyrics = "***";
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    $sql = "SELECT * FROM songs where id_song = $id";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // Obtiene los datos de la canción en variables
+        $row = $result->fetch_assoc();
+        $sql2 = "SELECT name_a as nm FROM albums WHERE id_alb=".$row['id_alb']."";
+        $resultA = $conn->query($sql2)->fetch_object()->nm;        
+        $id_alb = $resultA;
+        $name_s = $row["name_s"];
+        $date_s = $row["date_s"];
+        $durtn = $row["durtn"];
+        $tims_plyd = $row["tims_plyd"];
+        $price_s = $row["price_s"];
+        $format_s = $row["format_s"];
+        $lyrics = $row["lyrics"];
+    } else {
+        echo "No se encontraron resultados";
+    }
+} else {
+    $id_alb = "Vs.";
+    $name_s = "***";
+    $date_s = "1111-11-11";
+    $durtn = "00:00:00";
+    $tims_plyd = "13";
+    $price_s = "5.00";
+    $format_s = "flac";
+    $lyrics = "***";
+}
 ?>
 <div class="col-lg-12">
     <div class="card">

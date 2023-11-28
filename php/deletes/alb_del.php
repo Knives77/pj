@@ -294,10 +294,10 @@ switch ($tabla) {
     case "sales":
         $id = $_GET["id"];
         //obtener numero de registros a borrar
-        $albumSales = "select id_sale as ida from album_sales where id_sale=$id;";
+        $albumSales = "select id_album_sale as ida from album_sales where id_sale=$id;";
         $ralb = $conn->query($albumSales);
 
-        $songSales = "select id_sale as ids from song_sales where id_sale=$id;";
+        $songSales = "select id_song_sale as ids from song_sales where id_sale=$id;";
         $rblb = $conn->query($songSales);
 
         // Comprobar consulta
